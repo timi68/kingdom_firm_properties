@@ -1,0 +1,104 @@
+@import "./mixins";
+@import "./variables";
+
+.search-filter-container {
+	background: #fff;
+	max-width: 1200px;
+	margin: auto;
+
+	.search-form-group-wrapper {
+		.form-group {
+			display: none;
+			padding-top: 2em;
+
+			.form-control {
+				display: flex;
+				width: 90%;
+				align-items: center;
+				background: #fff;
+				height: 50px;
+				margin: auto;
+				box-shadow: map-get($map: $shadow, $key: "normal-shadow");
+				border-radius: 5px;
+				overflow: hidden;
+
+				.text-control {
+					padding: 1em;
+					flex-grow: 1;
+					height: 100%;
+					font-family: Poppins;
+					background: transparent;
+					appearance: none;
+				}
+
+				.search-btn {
+					padding: 0.5em 1em;
+					height: 100%;
+				}
+			}
+
+			@include media_700 {
+				display: block;
+			}
+		}
+	}
+
+	.search-filter {
+		max-height: auto;
+		overflow: hidden;
+		border-radius: 10px;
+		box-shadow: map-get($map: $shadow, $key: "normal-shadow");
+		padding: 1em;
+
+		.search-filter-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1em;
+		}
+
+		.form-group {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1em;
+			align-items: center;
+			margin-bottom: 1em;
+		}
+	}
+}
+
+.matched-searched-section {
+	padding: 1em 1em 3em;
+
+	.section-header {
+		.title {
+			font-weight: 500;
+			font-size: 1em;
+			margin-bottom: 2em;
+			text-align: center;
+		}
+	}
+	.search-results {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1em;
+		padding: 0;
+		max-width: 100%;
+
+		.card {
+			width: 360px;
+			max-width: 100%;
+
+			@include media_950 {
+				width: 360px;
+			}
+			@include media_800 {
+				width: 48%;
+			}
+			@include media_600 {
+				width: 450px;
+			}
+		}
+	}
+}

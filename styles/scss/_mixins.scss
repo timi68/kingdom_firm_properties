@@ -1,0 +1,85 @@
+@mixin media_360 {
+	@media screen and (max-width: 363px) {
+		@content;
+	}
+}
+@mixin media_400 {
+	@media screen and (max-width: 430px) {
+		@content;
+	}
+}
+
+@mixin media_600 {
+	@media screen and (max-width: 600px) {
+		@content;
+	}
+}
+
+@mixin media_650 {
+	@media screen and (max-width: 650px) {
+		@content;
+	}
+}
+@mixin media_700 {
+	@media screen and (max-width: 700px) {
+		@content;
+	}
+}
+
+@mixin media_800 {
+	@media screen and (max-width: 800px) {
+		@content;
+	}
+}
+@mixin media_950 {
+	@media screen and (max-width: 950px) {
+		@content;
+	}
+}
+
+@mixin media_500 {
+	@media screen and (max-width: 500px) {
+		@content;
+	}
+}
+@mixin media_550 {
+	@media screen and (max-width: 550px) {
+		@content;
+	}
+}
+
+@mixin formControl(
+	$radius: 50px,
+	$padding: 15px 20px,
+	$background: map-get($map: $colors, $key: "blue"),
+	$svgColor: #fff
+) {
+	.form-control {
+		display: flex;
+		border-radius: $radius;
+		overflow: hidden;
+		width: 100%;
+		max-width: 90vw;
+		margin: auto;
+		.text-control {
+			flex-grow: 1;
+			padding: $padding;
+			background: whitesmoke;
+			font-size: 0.9em;
+			font-family: Poppins;
+
+			@include media_360 {
+				max-width: 85%;
+			}
+		}
+		.search-btn {
+			background: $background;
+			padding: $padding;
+			border-radius: 0 $radius $radius 0;
+
+			svg {
+				fill: $svgColor;
+			}
+		}
+	}
+}
