@@ -42,24 +42,10 @@ export type StateProps = {
 	maxPrice: number;
 	bedrooms: number;
 	bathrooms: number;
+	location?: string;
 };
 
 function Explore() {
-	const [expand, setExpand] = React.useState<boolean>(false);
-	const [state, setState] = React.useState<StateProps>({
-		propertyType: "Mini flat",
-		status: "SALE",
-		minPrice: 500_000,
-		maxPrice: 1_000_000,
-		bedrooms: 2,
-		bathrooms: 3,
-	});
-
-	const handleChange = (event: PointerEvent) => {
-		const target = event.target as HTMLInputElement;
-		setState({...state, [target.name]: target.value});
-	};
-
 	return (
 		<Layout exploring>
 			<div className="search-filter-container">
@@ -83,166 +69,7 @@ function Explore() {
 						</div>
 					</form>
 				</div>
-				<motion.div
-					initial={{height: 60, overflow: "hidden"}}
-					animate={{
-						height: expand ? "fit-content" : 60,
-						transition: {
-							// duration: 0.1,
-							type: "just",
-							// damping: 50,
-							// stiffness: 400,
-						},
-					}}
-					className="search-filter"
-				>
-					<div className="search-filter-header">
-						<Typography
-							component="div"
-							variant="h6"
-							color="primary"
-							flexGrow={1}
-						>
-							Filter
-						</Typography>
-						<Typography
-							component="span"
-							variant="caption"
-							color="primary"
-							display="flex"
-							alignItems="center"
-							sx={{cursor: "pointer"}}
-							onClick={() => setExpand(!expand)}
-						>
-							<AddIcon color="primary" fontSize="small" />{" "}
-							{!expand ? "Expand " : "Collapse "}
-							Filter
-						</Typography>
-					</div>
-					<div className="form-group">
-						<div className="price-group">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								Price Range
-							</Typography>
-							<Stack
-								direction="row"
-								spacing={0.5}
-								alignItems="center"
-							>
-								<Selectable
-									label="Min*"
-									name="minPrice"
-									onChange={handleChange}
-									default={state.minPrice}
-								/>
-								<RemoveIcon fontSize="small" />
-								<Selectable
-									label="Max*"
-									name="maxPrice"
-									minPrice={state.minPrice}
-									onChange={handleChange}
-									default={state.maxPrice}
-								/>
-							</Stack>
-						</div>
-
-						<div className="property-type">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								Property Type
-							</Typography>
-							<Selectable
-								label="Type*"
-								name="propertyType"
-								default={state.propertyType}
-								onChange={handleChange}
-								items={PropertyTypes}
-							/>
-						</div>
-						<div className="status">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								Status*
-							</Typography>
-							<Selectable
-								label="Status*"
-								name="status"
-								default={state.status}
-								onChange={handleChange}
-								items={["RENT", "SALE", "LEASE"]}
-							/>
-						</div>
-						<div className="bathroom">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								Bathrooms*
-							</Typography>
-							<Selectable
-								label="Bathrooms*"
-								name="bathrooms"
-								default={state.bathrooms}
-								items={[1, 2, 3, 4, 5]}
-								onChange={handleChange}
-							/>
-						</div>
-						<div className="bedroom">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								Bedrooms*
-							</Typography>
-							<Selectable
-								label="Bedrooms*"
-								name="bedrooms"
-								default={state.bedrooms}
-								onChange={handleChange}
-								items={[1, 2, 3, 4, 5]}
-							/>
-						</div>
-						{/* <div className="city state">
-							<Typography
-								component="h3"
-								variant="body2"
-								fontWeight={400}
-								sx={{color: "grey"}}
-								mb={2}
-							>
-								City | State | Location
-							</Typography>
-							<TextField
-								label="target"
-								size="small"
-								value="Lekki, ajah"
-								variant="outlined"
-							/>
-						</div> */}
-					</div>
-				</motion.div>
+				<Filter />
 			</div>
 			<div className="matched-searched-section">
 				<div className="search-results-conatiner">
@@ -418,4 +245,179 @@ function Explore() {
 	);
 }
 
+function Filter(): JSX.Element {
+	const [expand, setExpand] = React.useState<boolean>(false);
+	const [state, setState] = React.useState<StateProps>({
+		propertyType: "Mini flat",
+		status: "SALE",
+		minPrice: 500_000,
+		maxPrice: 1_000_000,
+		bedrooms: 2,
+		bathrooms: 3,
+	});
+
+	const handleChange = (event: PointerEvent) => {
+		const target = event.target as HTMLInputElement;
+		setState({...state, [target.name]: target.value});
+	};
+
+	return (
+		<div className="search-filter">
+			<div className="search-filter-header">
+				<Typography
+					component="div"
+					variant="h6"
+					color="primary"
+					flexGrow={1}
+				>
+					Filter
+				</Typography>
+				<Typography
+					component="span"
+					variant="caption"
+					color="primary"
+					display="flex"
+					alignItems="center"
+					sx={{cursor: "pointer"}}
+					onClick={() => setExpand(!expand)}
+				>
+					<AddIcon color="primary" fontSize="small" />{" "}
+					{!expand ? "Expand " : "Collapse "}
+					Filter
+				</Typography>
+			</div>
+			<motion.div
+				className="form-group"
+				initial={{height: 0, overflow: "hidden"}}
+				animate={{
+					height: expand ? "fit-content" : 0,
+					transition: {
+						// duration: 0.1,
+						type: "just",
+						// damping: 50,
+						// stiffness: 400,
+					},
+				}}
+			>
+				<div className="price-group">
+					<Typography
+						component="h3"
+						variant="body2"
+						fontWeight={400}
+						sx={{color: "grey"}}
+						mb={2}
+					>
+						Price Range
+					</Typography>
+					<Stack direction="row" spacing={0.5} alignItems="center">
+						<Selectable
+							label="Min*"
+							name="minPrice"
+							onChange={handleChange}
+							default={state.minPrice}
+						/>
+						<RemoveIcon fontSize="small" />
+						<Selectable
+							label="Max*"
+							name="maxPrice"
+							minPrice={state.minPrice}
+							onChange={handleChange}
+							default={state.maxPrice}
+						/>
+					</Stack>
+				</div>
+
+				<div className="property-type">
+					<Typography
+						component="h3"
+						variant="body2"
+						fontWeight={400}
+						sx={{color: "grey"}}
+						mb={2}
+					>
+						Property Type
+					</Typography>
+					<Selectable
+						label="Type*"
+						name="propertyType"
+						default={state.propertyType}
+						onChange={handleChange}
+						items={PropertyTypes}
+					/>
+				</div>
+				<div className="status">
+					<Typography
+						component="h3"
+						variant="body2"
+						fontWeight={400}
+						sx={{color: "grey"}}
+						mb={2}
+					>
+						Status*
+					</Typography>
+					<Selectable
+						label="Status*"
+						name="status"
+						default={state.status}
+						onChange={handleChange}
+						items={["RENT", "SALE", "LEASE"]}
+					/>
+				</div>
+				<div className="bathroom">
+					<Typography
+						component="h3"
+						variant="body2"
+						fontWeight={400}
+						sx={{color: "grey"}}
+						mb={2}
+					>
+						Bathrooms*
+					</Typography>
+					<Selectable
+						label="Bathrooms*"
+						name="bathrooms"
+						default={state.bathrooms}
+						items={[1, 2, 3, 4, 5]}
+						onChange={handleChange}
+					/>
+				</div>
+				<div className="bedroom">
+					<Typography
+						component="h3"
+						variant="body2"
+						fontWeight={400}
+						sx={{color: "grey"}}
+						mb={2}
+					>
+						Bedrooms*
+					</Typography>
+					<Selectable
+						label="Bedrooms*"
+						name="bedrooms"
+						default={state.bedrooms}
+						onChange={handleChange}
+						items={[1, 2, 3, 4, 5]}
+					/>
+				</div>
+				{/* <div className="city state">
+							<Typography
+								component="h3"
+								variant="body2"
+								fontWeight={400}
+								sx={{color: "grey"}}
+								mb={2}
+							>
+								City | State | Location
+							</Typography>
+							<TextField
+								label="target"
+								size="small"
+								value="Lekki, ajah"
+								variant="outlined"
+							/>
+						</div> */}
+			</motion.div>
+		</div>
+	);
+}
 export default Explore;

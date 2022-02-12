@@ -164,31 +164,31 @@ body {
 
 	&.scrolling,
 	&.exploring {
-		background: #f5f5f5;
+		// background: #f5f5f5;
 		background: rgba(0, 0, 0, 0.7);
 		backdrop-filter: blur(3px);
 		box-shadow: map-get($map: $shadow, $key: "normal-shadow");
-
-		// .logo {
-		// 	font-weight: 300;
-		// 	color: grey;
-		// }
-
-		// .icon {
-		// 	background: rgba(77, 76, 76, 0.146);
-		// }
-
-		// .icon-svg {
-		// 	fill: gray;
-		// }
-
-		// .link a {
-		// 	color: grey;
-		// }
 	}
 
 	&.exploring {
 		position: relative;
+		background: #f5f5f5;
+		.logo {
+			font-weight: 300;
+			color: grey;
+		}
+
+		.icon {
+			background: rgba(77, 76, 76, 0.146);
+		}
+
+		.icon-svg {
+			fill: gray;
+		}
+
+		.link a {
+			color: grey;
+		}
 
 		&.scrolling {
 			position: fixed;
@@ -231,10 +231,10 @@ body {
 .footer-wrapper {
 	max-width: 1200px;
 	margin: auto;
-	padding: 5em 2em 1em;
+	padding: 5em 1em 1em;
 
 	.footer-form-wrapper {
-		max-width: 90vw;
+		max-width: 100%;
 		width: 600px;
 		margin: auto;
 		margin-bottom: 3em;
@@ -253,20 +253,13 @@ body {
 		@include formControl();
 		.form-control {
 			box-shadow: map-get($map: $shadow, $key: "normal-shadow");
-			max-width: 70vw;
-
-			@include media_360 {
-				max-width: 90vw;
-			}
+			max-width: 100%;
 
 			.text-control {
 				padding: 1em;
 				font-family: Poppins;
 				font-weight: 400;
 				font-size: 0.8em;
-			}
-			.search-btn {
-				padding: 10px 20px;
 			}
 		}
 	}

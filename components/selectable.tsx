@@ -10,7 +10,6 @@ interface SelectableProp {
 }
 
 export default function Selectable(props: SelectableProp): JSX.Element {
-	console.log({props});
 	return (
 		<FormControl
 			size="small"

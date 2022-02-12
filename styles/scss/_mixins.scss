@@ -58,20 +58,20 @@
 		border-radius: $radius;
 		overflow: hidden;
 		width: 100%;
-		max-width: 90vw;
+		max-width: 100%;
 		margin: auto;
+
 		.text-control {
 			flex-grow: 1;
 			padding: $padding;
 			background: whitesmoke;
 			font-size: 0.9em;
+			text-overflow: ellipsis;
+			width: 80%;
 			font-family: Poppins;
-
-			@include media_360 {
-				max-width: 85%;
-			}
 		}
 		.search-btn {
+			flex-grow: 1;
 			background: $background;
 			padding: $padding;
 			border-radius: 0 $radius $radius 0;

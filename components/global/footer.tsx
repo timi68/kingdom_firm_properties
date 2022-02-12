@@ -62,22 +62,20 @@ function Footer({children}: {children?: React.ReactNode}) {
 					</div>
 					<form action="#" className="form-group register-email">
 						<div className="form-control">
-							<div className="form-control">
-								<input
-									type="text"
-									className="text-control inputbox"
-									role="searchbox"
-									autoComplete="new-search"
-									placeholder="Search for City, Neighbourhood..."
-								/>
-								<button
-									role="search"
-									className="search-btn"
-									id="search-trigger"
-								>
-									<SearchRoundedIcon fontSize="medium" />
-								</button>
-							</div>
+							<input
+								type="text"
+								className="text-control inputbox"
+								role="searchbox"
+								autoComplete="new-search"
+								placeholder="Search for City, Neighbourhood..."
+							/>
+							<button
+								role="search"
+								className="search-btn"
+								id="search-trigger"
+							>
+								<SearchRoundedIcon fontSize="medium" />
+							</button>
 						</div>
 					</form>
 				</div>
