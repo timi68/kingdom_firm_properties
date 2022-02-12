@@ -1,11 +1,9 @@
-# Veegor DApp
+# Kingdom Firm Properties Ltd Web Code
 
-App use to manage cryptocurrency
+It's manages apartments, buildings around the country Nigeria
 
 ## Production Site
 
-[Go to Site](https://veegor.heorkuapp.com)
+[visit to Site](https://kingdomfirmproperties.heorkuapp.com)
 
-#### Crypto Managment System
-
-Launch your project on BlockchainRim today and experience the power of the Blockchain
+#### Real Estate Management Website
