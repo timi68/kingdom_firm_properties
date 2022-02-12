@@ -165,24 +165,26 @@ body {
 	&.scrolling,
 	&.exploring {
 		background: #f5f5f5;
+		background: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(3px);
 		box-shadow: map-get($map: $shadow, $key: "normal-shadow");
 
-		.logo {
-			font-weight: 300;
-			color: grey;
-		}
+		// .logo {
+		// 	font-weight: 300;
+		// 	color: grey;
+		// }
 
-		.icon {
-			background: rgba(77, 76, 76, 0.146);
-		}
+		// .icon {
+		// 	background: rgba(77, 76, 76, 0.146);
+		// }
 
-		.icon-svg {
-			fill: gray;
-		}
+		// .icon-svg {
+		// 	fill: gray;
+		// }
 
-		.link a {
-			color: grey;
-		}
+		// .link a {
+		// 	color: grey;
+		// }
 	}
 
 	&.exploring {
