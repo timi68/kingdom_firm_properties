@@ -87,10 +87,10 @@ function Login() {
 									</label>
 									<input
 										type="password"
-										id="username"
+										id="password"
 										placeholder="Enter your password"
-										name="username"
-										className="text-control username"
+										name="password"
+										className="text-control password"
 									/>
 								</div>
 								<div className="action-control">

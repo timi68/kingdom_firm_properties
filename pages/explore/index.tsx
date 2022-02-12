@@ -57,8 +57,6 @@ function Explore() {
 
 	const handleChange = (event: PointerEvent) => {
 		const target = event.target as HTMLInputElement;
-
-		console.log({target});
 		setState({...state, [target.name]: target.value});
 	};
 
