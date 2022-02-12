@@ -1,9 +1,6 @@
 import React, {Fragment} from "react";
 import * as Interfaces from "../../utils/interfaces";
-import Footer from "../../components/global/footer";
 import Box from "@mui/material/Box";
-import Menu from "@mui/icons-material/Menu";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {motion, AnimatePresence} from "framer-motion";
