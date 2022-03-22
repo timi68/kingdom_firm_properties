@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/privacy-policy.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <%- include('general/header') -%>
+            <div class="privacy-policy-container">
+                <div class="privacy-policy-wrapper">
+                    <div class="privacy-policy-header">
+                        <div class="privacy-policy-header-text main-text large-text">
+                            <h3>Privacy Policy</h3>
+                        </div>
+                    </div>
+                    <div class="privacy-policy-body">
+                        <div class="privacy-policy-body-wrapper">
+                            <div class="privacy-policy-body-header">
+                                <div class="header-text">
+                                    <p>
+                                        We are glad that you have come to check how we use you information. Worry less every details
+                                        of you is never and will not be disclose to unknown person. Every information we collect about 
+                                        you helps to get to you easily when in need of activeness. Every property you upload we surely
+                                        have a feedback, so by getting this information of you, we can easily give you update about the 
+                                        property. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="privacy-policy-details-list">
+                                <div class="list-title">
+                                    <p>
+                                        This are the following information we collected about you:
+                                    </p>
+                                </div>
+                                <ul class="privacy-list">
+                                    <li class="privacy-item">
+                                        <span>Email</span>
+                                        <div class="privacy-item-text">
+                                            <p class="text">
+                                                This is your is a alternate to get contact to you and give update on every 
+                                                product you upload. This might take some time for you to see every 
+                                                update we send to you because of maybe your inactive in email. We will 
+                                                urge you to check your email often to see some update that can be sent 
+                                                to you. Your email will to be verified for us to call you a member. 
+                                            </p>                                 
+                                        </div> 
+                                    </li>
+                                    <li class="privacy-item">
+                                        <span>Contact</span>
+                                        <div class="privacy-item-text">
+                                            <p class="text">
+                                                This is also an alternative to get to you easily, even faster. We will urge you to
+                                                use the contact you use for your WhatsApp: this can serve as another alternative 
+                                                to get to you. We are concern on how to reach you when there is an update
+                                                on your property. Some property update really needs fast respond, so please
+                                                stay visible to us always. Your contact will also need verification for us to make
+                                                you one of us.
+                                            </p>                                  
+                                        </div>
+                                    </li>
+                                    <li class="privacy-item">
+                                        <span>Password</span>
+                                        <div class="privacy-item-text">
+                                            <p class="text">
+                                                The password is just for a key to login whenever you the board. So please kindly
+                                                save your password, even your login details. So that unnecessary property with 
+                                                fake existence will not be uploaded.                                                                             
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="privacy-item">
+                                        <span>Private Name</span>
+                                        <div class="privacy-item-text">
+                                            <p class="text">
+                                                Your name serve as an id to the board, we will recognize you by your name and 
+                                                with a specific id number that will be giving to you after verification of your
+                                                number and Email.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+
+    <!-- page script javascript -->
+    <script>
+        window.onload = e => {
+            const link = document.querySelector('a.check-link'),
+            privacy = document.querySelector('.privacy')
+
+            link.innerText = "Home";
+            link.setAttribute('href',"/");
+            link.setAttribute('class', "home")
+
+            privacy.parentElement.classList.add('active');
+        }
+
+
+    </script>
+</body>
+</html>

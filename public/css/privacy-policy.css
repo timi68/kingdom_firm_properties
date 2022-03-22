@@ -1,0 +1,73 @@
+.privacy-policy-container {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 10px 30px;
+}
+
+.privacy-policy-container .main-text {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-container .main-text h3 {
+  font-size: var(--medium);
+  padding: 7px 15px;
+  border-radius: 5px;
+  color: var(--dark-grey);
+  -webkit-box-shadow: 0px 0px 3px var(--dark-grey);
+          box-shadow: 0px 0px 3px var(--dark-grey);
+}
+
+.privacy-policy-container .header-text p {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.privacy-policy-container .list-title p {
+  color: var(--dark-grey);
+  font-weight: 500;
+}
+
+.privacy-policy-container .privacy-list {
+  list-style-type: decimal-leading-zero;
+  max-width: 700px;
+}
+
+.privacy-policy-container .privacy-list .privacy-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 40px 10px;
+}
+
+.privacy-policy-container .privacy-list .privacy-item ::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 5px;
+  border-radius: 100%;
+  background: var(--dark-grey);
+  bottom: 0;
+  left: 0;
+}
+
+.privacy-policy-container .privacy-list .privacy-item span {
+  padding: 7px 15px;
+  -webkit-box-shadow: 0px 0px 3px var(--dark-grey);
+          box-shadow: 0px 0px 3px var(--dark-grey);
+  color: var(--dark-grey);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.privacy-policy-container .privacy-list .privacy-item .text {
+  font-weight: 500;
+  font-size: 14px;
+}
+/*# sourceMappingURL=privacy-policy.css.map */

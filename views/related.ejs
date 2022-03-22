@@ -1,0 +1,62 @@
+<% if(typeof(related) !== "undefined") { %>
+    <% related.forEach(el => { %>
+        <div class="card-wrappers row">
+            <div class="card">
+                <div class="card-wrapper">
+                    <div class="card-header">
+                        <div class="card-image">
+                            <img class="img-fluid" src="<%= el.prop_images[0].secure_url%>" alt="<%= el.title %> image">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <ul class="card-list">
+                                <li class="card-title">
+                                    <h4><%= el.title %></h4>
+                                </li>
+                                <li class="card-location">
+                                    <b class="located">Located : </b>
+                                    <span class="location-title">
+                                        <%= el.state %>, at <%= el.lga %>
+                                        local government
+                                    </span>
+                                </li>
+                                <li class="card-price">
+                                    <b class="price">Price : </b>
+                                    <strong>&#8358;</strong>
+                                    <span class="price-title">
+                                        <%= Number(el.price).toLocaleString() %>
+                                    </span>
+                                </li>
+                                <li class="card-negotiable">
+                                    <b class="nego">Status : </b>
+                                    <span class="nego-title"> <%= el.status %> </span>
+                                </li>
+                                <li class="card-description">
+                                    <b class="des">Description : </b>
+                                    <span class="description-title">
+                                        <%= el.description.length > 40 ? el.description.substr(0,40) : el.description %>
+                                    </span>
+                                </li>
+                            </ul>
+                            <a href="/explore/overview?q=<%= el.id %>" class="no-more">Know more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="see-more-wrap">
+            <a href="/explore" class="see-more">
+                <span>See More</span>
+            </a>
+        </div>
+    <%})%>
+<%}else{ %>
+    <div class="card-wrappers row">
+        <div class="not-found-response">
+            <div class="not-found-text">
+                No related result
+            </div>
+        </div>
+    </div>
+<%}%>

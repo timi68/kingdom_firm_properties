@@ -1,0 +1,59 @@
+<% if(user.verified != true){ %>
+    <div class="email-verification-body-form body-form">
+        <div class="email-message v-message">
+        </div>
+        <div class="form-container display">
+            <form action="#" class="email-form1 form1 form-group input-wrapper">
+                <div class="form-wrapper">
+                    <div class="display-flex code-formgroup-wrapper">
+                        <div class="form-group form-input-wrapper"> 
+                            <input
+                             type="email"
+                              name="email"
+                               placeholder="Enter your email"
+                                id="email"
+                                 required
+                                 value="<%= user.email != '' ? user.email : '' %>"
+                                  class="form-control text-carrier userEmail input">
+                            <div class="invalid-feedback">
+                                Email is empty or Invalid*
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <button type="button" class="submit-button get-email">
+                            Get code
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <form action="#" class="email-form2 form2 code-getter-form form-group">
+                <div class="code-getter-wrapper">
+                    <div class="form-group code-form-taker code-transporter">
+                        <input type="text" placeholder="Enter code" name="email-code" id="code" class="code-text form-control email-code" required>
+                        <div class="invalid-feedback">
+                            Enter code to verify your email.
+                        </div>
+                    </div>
+                </div>
+                <div class="verify-code">
+                    <button type="button" class="button submit-button verify-email">
+                        Verify
+                    </button>
+                    <div class="resend-wrapper">
+                        <p>Didn't get a code ? <span class="resend resend-email">Resend</span></p>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+<% }else{ %>
+
+<div class="body-text">
+    <div class="small-text verified-text">
+        <p class="verified">Your email <span class="email"><%= user.email %></span> has been <span class="verify">Verified Successfully</span></p>
+    </div>
+</div>
+
+<% } %>

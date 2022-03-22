@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/loader-animation.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="loader loader--fade">
+        <div class="logo-wrapper">
+            <div class="logo-image">
+                <a href="/">
+                    <img src="/images/logo.png" alt="" class="img-logo">
+                </a>
+            </div>
+        </div>
+        <div class="loading-wrapper">
+            <span class="loader-item">1</span>
+            <span class="loader-item">2</span>
+            <span class="loader-item">3</span>
+            <span class="loader-item">4</span>
+            <span class="loader-item">5</span>
+            <span class="loader-item">6</span>
+        </div>
+     </div>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <%- include('general/header') -%>
+            <div class="back-to-top">
+                &upuparrows;
+            </div>
+            <section class="welcome-screen">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <video src="/videos/first.mp4" class="home-video" autoplay muted></video>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/videos/second.mp4" class="home-video" autoplay muted></video>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/videos/third.mp4" class="home-video" autoplay muted></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome-center section-wrapper row">
+                    <div class="welcome-text">
+                        <h1>Get Your Home <br>Easily</h1>
+                    </div>
+                    <div class="welcome-screen-image">
+                        <img src="images/wel2.png" alt="" class="welcome">
+                    </div>
+                </div>
+                <div class="timer"></div>
+            </section>
+            <section class="second-section fast-preview">
+                <div class="preview-wrapper section-wrapper">
+                    <div class="fast-preview-title">
+                        <h2>Check Out Some Of Our Explore Properties</h2>
+                    </div>
+                    <div class="row card-wrappers">
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-wrapper">
+                                <div class="card-header">
+                                    <div class="card-image">
+                                        <img class="img-fluid" src="/images/house1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-info">
+                                        <ul class="card-list">
+                                            <li class="card-title">
+                                                <h4>Luxurius Mansion</h4>
+                                            </li>
+                                            <li class="card-location">
+                                                <b class="located">Located : </b>
+                                                <span class="location-title">
+                                                    42, Ade Adaramoye Street, Ikotun, Lagos State.
+                                                </span>
+                                            </li>
+                                            <li class="card-price">
+                                                <b class="price">Price : </b>
+                                                <strong>$</strong>
+                                                <span class="price-title">
+                                                    2000000
+                                                </span>
+                                            </li>
+                                            <li class="card-negotiable">
+                                                <b class="nego">Negotiable : </b>
+                                                <span class="nego-title"> No </span>
+                                            </li>
+                                            <li class="card-description">
+                                                <b class="description">Description : </b>
+                                                <span class="description-title">
+                                                    Fully Conditioin Rooms,
+                                                    Tight Security,
+                                                    Automatic Door.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="no-more">Know more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="see-more-wrap">
+                        <a href="/explore" class="see-more">
+                            <span>See More</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="third-section attract-student">
+                <div class="attract-wrapper section-wrapper row">
+                    <div class="attract-text col-5">
+                        <div class="text">
+                            <h2>
+                                ARE YOU A STUDENT LOOKING FOR HOSTEL CLOSE TO YOUR SCHOOL
+                            </h2>
+                            <strong>TRY EXPLORE YOU CAN GET ONE</strong> 
+                        </div>
+                        <div class="attract-link-wrap">
+                            <a href="/explore" class="attract-link">
+                                Explore Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="attract-image col-5">
+                        <img src="images/dark image.jpg" alt="dark image.jpg">
+                    </div>
+                </div>
+            </section>
+            <section class="fourth-section check-in" id="check-in">
+                <div class="check-in-wrapper section-wrapper">
+                    <div class="check-in-body">
+                        <div class="check-in-header">
+                            <div class="check-in-title">
+                                <h1>Check In</h1>
+                            </div>
+                            <div class="check-in-header-text">
+                                <p>
+                                    We have much to tell you, You might be thinking what can I do in this website, you can do much.
+                                    <br>
+                                    <strong> 
+                                        At the top of the page , There are only three simple navigator link:
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="check-in-list">
+                            <ul class="check-list">
+                                <li>
+                                    <div class="check-title">
+                                        <h3>Check in</h3>
+                                    </div>
+                                    <div class="check-list-text">
+                                        <p>
+                                            Which will bring to this section to tell you how you can enjoy your visit to this website.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="check-title">
+                                        <h3>Explore</h3>
+                                    </div>
+                                    <div class="check-list-text">
+                                        <p>
+                                            This is where the real fun comes in, where you can get your house, hostel, apartment for hire,  apartment for lease, apartment for sale easily. <br>
+                                            <b class="on-click">One Click To Explore.</b>
+                                        </p>
+                                    </div>
+                                    <div class="explore-shortcut-wrap">
+                                        <a href="/explore" class="explore-shortcut attract-link">Explore Now</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="check-title">
+                                        <h3>Membership</h3>
+                                    </div>
+                                    <div class="check-list-text">
+                                        <p>
+                                            This link us together, we share business deals together, Uploading and working together. By becoming one of our member, you will be able to showcase your available properties for sale or for hire, or for leasing. <br>
+                                            Our membership is open to the dedicated ones. 
+                                        </p>
+                                    </div>
+                                    <div class="memebership-shortcut-wrap">
+                                        <a href="/membership/register" class="membership-shortcut attract-link">Join our member</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="fifth-section members-shortcut-section">
+                <div class="members-shortcut-wrapper section-wrapper"> 
+                    <div class="members-shortcut-body row">
+                        <div class="members-shortcut-header col-5">
+                            <div class="shortcut-man-text ">
+                                <h1>
+                                    WE ARE REAL ESTATE MANAGEMENT
+                                </h1>
+                            </div>
+                            <div class="shorcut-small-text">
+                                <p>
+                                    <strong>
+                                        Want to be part of our membership, you just need a click
+                                    </strong>
+                                </p>
+                            </div>
+                            <a href="/membership" class="member-shortcut-link attract-link">Join our member</a>
+                        </div>
+                        <div class="members-shortcut-section col-5">
+                            <div class="shortcut-image">
+                                <img src="/images/management.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/scrollRreveal.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

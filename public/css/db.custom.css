@@ -1,0 +1,131 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluids {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 120px);
+}
+
+.container-fluids .wrapper {
+  position: relative;
+}
+
+.container-fluids .card {
+  max-width: 500px;
+  padding: 30px 10px 50px 10px;
+  border-top: none;
+  background:var(--grey-black);
+  max-height: calc(100vh - 50px);
+  border-radius: 0 0 5px 5px;
+  margin: auto;
+}
+
+.container-fluids .card .verification-wrapper {
+  max-width: 400px;
+  margin: auto;
+}
+
+.container-fluids .card .verification-title {
+  margin-bottom: 20px;
+  
+}
+
+.container-fluids .card .verification-title h1,.header-title h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.container-fluids .card .verification-body .verification-text h4,.header-text h4 {
+  font-size: 15px;
+  color: var(--dark-grey);
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.header-text h4 strong,.header-text p strong{
+  color:rgba(100, 182, 100, 0.829)
+}
+
+
+.container-fluids .card .verification-body .verification-text h4 strong {
+    color: var(--blue);
+    font-size: var(--smaller);
+}
+
+.container-fluids .card .verification-body .verification-text p {
+  font-weight: 500;
+  font-size:var(--smaller)
+}
+
+
+.container-fluids .card .verification-form,.password-changer-form{
+  margin-top: 30px;
+  max-width:300px;
+  margin:auto;
+}
+.password-changer-body{
+  margin-top:50px;
+}
+.container-fluids .card  .verify-form,.password-form {
+  background: var(--grey);
+  border-radius: 10px;
+  -webkit-box-shadow:inset 0px 3px 10px var(--grey);
+  box-shadow:inset 0px 3px 10px var(--grey);
+  padding:20px 5px;
+  
+}
+
+.container-fluids .card  .form-group,.password-form .form-group {
+  font-weight: 500;
+  font-size: var(--smaller);
+}
+
+.container-fluids .card .verify-form .form-group .form-control,.form-group .form-control {
+  max-width: 90%;
+  margin:auto;
+  padding: 5px 10px;
+  background:var(--grey-black);
+  color:var(--text-color);
+  outline:none;
+  border:none;
+  box-shadow:0px 0px 3px var(--dark-grey);
+}
+
+.form-control:focus{
+  box-shadow:0px 0px 3px var(--dark-grey);
+  color:var(--text-color);
+}
+
+.verify-button,.change-password-button{
+  width:fit-content;
+  margin:auto;
+}
+.container-fluids .card .verify-form .verify-button .verify,.submit-button {
+  font-weight: 500;
+  text-align: center;
+  font-size: var(--small);
+  padding: 5px 25px;
+  background: var(--grey-black);
+  color: var(--dark-grey);
+  outline: none;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px var(--dark-grey);
+  box-shadow: 0px 0px 3px var(--dark-grey);
+  border-radius: 50px;
+}
+
+.verify:hover,.submit-button:hover{
+  color:lightgrey;
+  -webkit-box-shadow: 0px 0px 5px var(--dark-grey);
+  box-shadow: 0px 0px 5px var(--dark-grey);
+}
+.container-fluids .card .verification-body .verification-form .verify-form .verify-button .verify :focus {
+  outline: none;
+  border: none;
+}
+/*# sourceMappingURL=db.custom.css.map */

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="../css/icons.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/member-dashboard.css">
+    <script>
+        //----------------------------------
+        //----------------------------------
+        const up_id = "<%= session.id %>",
+        up_name = "<%= session.name %>";
+
+        //---------------------------------
+        //---------------------------------
+    </script>
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="modal-warning">
+        
+    </div>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <header class="home-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+                        <p class="logo-text">The Kingdom Estate</p>
+                    </div>
+                    <div class="upload-wrapper">
+                        <div class="upload-link">
+                            <a href="/membership/dashboard">Back To Uploads</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="dashboard">
+                <div class="dashboard-header">
+                    <div class="dashboard-header-title">
+                        <h2>Let create more explore, <strong>James</strong></h2>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <div class="form-wrapper">
+                        <form action="" class="form-group" id="form" enctype='multipart/form-data'>
+                            <div class="drag-drop-row-container">
+                                <div class="large-title">
+                                    <div class="large-title-wrapper">
+                                        <div class="large-title-text">
+                                            <h1>Add more to the uploads</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="note">
+                                    <p>Note: the first box image will be the property front image.</p>
+                                </div>
+                                <div class="drag-drop-row row">
+                                </div>
+                            </div>
+                            <div class="attributes-container">
+                                <div class="attributes-wrapper">
+                                    <div class="textarea-wrapper row m-0">
+                                        <div class="property-title">
+                                            <div class="property-title-text">
+                                                <input type="text" name="title" id="prop-title-text" class="form-control prop-title-text" placeholder="Property title here.">
+                                            </div>
+                                            <div class="hint">
+                                                <p>Property title should be here, e.g (Mini Flat, Mansion, Self contain, Four Bedroom Flat e.t.c*</p>
+                                            </div>
+                                        </div>
+                                        <div class="textarea-form-control-container col-6">
+                                            <div class="textarea-form-control-wrapper">
+                                                <textarea name="location" id="textarea" cols="30" rows="6" 
+                                                placeholder="Location Of The Property*" class="location form-control"></textarea>
+                                                <div class="hint">
+                                                    <p>This will be shown to the public in other for them to know the location of the property*</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="textarea-form-control-container col-6">
+                                            <div class="textarea-form-control-wrapper">
+                                                <textarea name="Facilities" id="textarea" cols="30" rows="6" 
+                                                placeholder="Facilities Of The Property*" class=" facilities form-control"></textarea>
+                                                <div class="hint">
+                                                    <p>Here should contain facilities in the property, qualities of the property that can attract visitors.*
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-container">
+                                        <div class="inputs-wrapper row">
+                                            <div class="input-form-control-container col-4">
+                                                <div class="input-form-control-wrapper">
+                                                    <select name="negotiable" id="negotiable" class="form-control">
+                                                        <option value="No">No</option>
+                                                        <option value="No">Yes</option>
+                                                       
+                                                    </select>
+                                                    <p class="hint">
+                                                    Select yes if the property is negotiable, else otherwise*
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="input-form-control-container col-4">
+                                                <div class="input-form-control-wrapper">
+                                                    <input type="text" name="price" id="price" Placeholder = "Price*" class="price form-control">
+                                                </div>
+                                            </div>
+                                            <div class="input-form-control-container col-4">
+                                                <div class="input-form-control-wrapper">
+                                                    <select name="status" id="status" class="form-control">
+                                                        <option value="For Sale">For Sale</option>
+                                                        <option value="For Hire">For Hire</option>
+                                                        <option value="For Lease">For Lease</option>
+                                                    </select>
+                                                    <p class="hint">
+                                                    Status of the property should be entered here, either it's for sale,or for hire, or for lease.* 
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="upload-button-wrapper">
+                                <button type="button" class="upload-button">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/upload.js">
+    </script>
+</body>
+</html>

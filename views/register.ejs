@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="../css/icons.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/member-index.css"> 
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <%- include('general/header') -%>
+            <section class="register-section">
+                <div class="register-section-wrapper row">
+                    <div class="section-header col-5">
+                        <div class="section-title">
+                            <h1>Welcome to the board,<br> <div>Fill the form below to join our membership.</div></h1>
+                        </div>
+                    </div>
+                    <div class="register-section-body col-7">
+                        <div class="section-form">
+                            <form action="#" method="POST" class="form-group sign_up_form">
+                                <div class="form-wrapper">
+                                    <h3 class="sign_up_text">Register</h3>
+                                <%- include('validation') -%>
+                                <div class="form_group_wrapper sign_up_wrapper">
+                                    <div class="details">
+                                        <input
+                                         type="text"
+                                          name="firstName"
+                                           class="form-control"
+                                            placeholder="First Name"
+                                             value="<% if(data != '') { %><%= data[0].firstName %><% } %>"
+                                              required>
+                                        <div class="invalid-feedback">
+                                            Enter first name
+                                        </div>
+                                    </div>
+                                    <div class="details">
+                                        <input
+                                         type="text"
+                                          name="lastName"
+                                           class="form-control"
+                                            placeholder="Last Name"
+                                             value="<% if(data != '') { %><%= data[0].lastName %><% } %>"
+                                              required>
+                                        <div class="invalid-feedback">
+                                            Enter last name
+                                        </div>
+                                    </div>
+                                    <div class="details">
+                                        <input
+                                         type="email"
+                                          name="userEmail"
+                                           class="form-control"
+                                            placeholder="Email"
+                                             value =  "<% if(data != '') { %><%= data[0].userEmail %><% } %>"
+                                              required>
+                                        <div class="invalid-feedback">
+                                            Email is invalid or empty
+                                        </div>
+                                    </div>
+                                    <div class="password_detail">
+                                        <input
+                                         type="password"
+                                          id="userPassword_sign_up"
+                                            name="userPassword"
+                                             class="p form-control"
+                                              placeholder="Password"
+                                               value = "<% if(data != '') { %><%= data[0].userPassword %><% } %>"
+                                                required>
+                                        <div class="eye">
+                                            <i id="s_h"><img src="/icons/visible-eye.svg" alt=""></i>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Security key required
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="form-g">
+                                        <div class="g-recaptcha" data-sitekey="6LdTmgkbAAAAAF0ysjDK_fnQITyM7PMM-dJIazZQ">
+                                        </div>
+                                        <input type="text" name="captcha" id="captcha" hidden>
+                                    </div>
+                                    <button type="submit" class="submit_button login-link">Join</button>
+                                    <div class="linker">
+                                        <p>Already have an account? <a href="/membership/login"class="login_in">Login In</a></p>
+                                    </div>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="attractive-section">
+                <div class="attractive-wrapper row">
+                    <div class="attractive-text col-5">
+                        <h1>
+                            Lets Work Together, Lets Get Home Close To Needy. Making Life Easy Through <span class="membership-highlight">Membership</span>. <br><span class="key">
+                                <span class="membership-highlight">Membership</span> is the key.
+                            </span>
+                        </h1>
+                    </div>
+                    <div class="attractive-image-wrapper col-5">
+                        <div class="attractive-image">
+                            <div class="image">
+                                <img src="../images/memb4er.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        !function(j){
+            j(document).ready(()=>{
+                j('.login-link').click(e => {
+                    e.preventDefault();
+                    const f = document.querySelector('.form-group');
+
+                    if(!f.checkValidity()){
+                        j(f).addClass('was-validated');
+                        return
+                    }
+
+                    const captcha = j('#g-recaptcha-response').val();
+                    j('#captcha').val(captcha);
+                    
+                    j(f).attr('action', "/member/register").attr("method","POST").submit()
+                }),
+                j("#s_h").click(()=>{
+                    j('.p').attr("type") == "password" ?
+                     j('.p').attr("type","text") :
+                      j('.p').attr('type','password');
+                      j('.p').focus();
+
+                      j('#s_h img').attr("src") == "/icons/visible-eye.svg" ?
+                        j('#s_h img').attr("src" , "/icons/hidden-eye.svg") :
+                        j('#s_h img').attr("src" , "/icons/visible-eye.svg") ;
+                            
+                }),
+                j(document).ready(()=>{
+                    j('li.check-link').html(
+                        '<a href="/" class="link">Home</a>'
+                    ).removeClass('check-link')      
+                }),
+                j(j(".links .link")[2]).addClass("active"),
+                setTimeout(()=>{
+                    j('.alert').fadeOut(1000)
+                },7000),
+                j('.menu').click(()=>{
+                    j('.navigator-wrapper').addClass('active');
+                    j('.menu').fadeOut(200)
+                }),
+                j('.navigator-wrapper .close').click(()=>{
+                    j('.navigator-wrapper').removeClass('active');
+                    j('.menu').fadeIn(1200);
+
+                })
+            })
+        }(jQuery)
+    </script>
+</body>
+</html>

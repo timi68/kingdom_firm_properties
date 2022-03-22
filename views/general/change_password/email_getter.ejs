@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/db.custom.css">
+    <title><%- title %></title>
+</head>
+<body>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <header class="home-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+                        <div class="logo-image">
+                            <a href="/">
+                                <img src="/images/logo.png" alt="" class="img-logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="password-changer card">
+                <div class="password-changer-wrapper">
+                    <header class="passoword-changer-header">
+                        <div class="header-title">
+                            <h1>Change Password</h1>
+                        </div> 
+                        <div class="header-text">
+                            <h4>This page is to change password</h4>
+                        </div>
+                    </header>
+                    <div class="password-changer-body">
+                        <div class="password-changer-form">
+                            <form action="/change/password" method="POST" enctype="application/x-www-form-urlencoded" class="password-form form-group">
+                               <div class="form-wrapper">
+                                    <%- include('../validation') -%>
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Enter your email" id="new_key" class="form-control" required>
+                                        <div class="invalid-feedback">
+                                            Enter your email*
+                                        </div>
+                                    </div>
+                                    <div class="change-password-button">
+                                        <button type="submit" class="submit-button text-center">Verify</button>
+                                    </div>
+                               </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/gsap_animation.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script>
+        !function(j){
+            
+        //---------------------------------------------
+        //this is the reveal action part if the weebsite
+        //----------------------------------------------
+        gsap.from('.container-fluids', {duration: 2, y: '-30%', ease: 'bounce'})
+
+            const b = document.querySelector('.submit-button'),
+            f = document.querySelector('form');
+
+            setTimeout(()=>{
+                j('.alert').fadeOut(1000)
+            },5000)
+
+            j(b).click(e => {
+                e.preventDefault()
+                if(!f.checkValidity()){
+                    f.classList.add('was-validated');
+                    return
+                }
+
+                j(f).attr('method',"post").attr('action',"/email_getter").submit()
+
+            })
+        }(jQuery)
+    </script>
+</body>
+</html>

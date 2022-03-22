@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/member-dashboard.css">
+    <style>
+        .form-wrapper{
+            padding:0;
+            background:none;
+        }
+    </style>
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="message"></div>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <header class="home-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+                        <div class="logo-image">
+                            <img src="/images/logo.png" alt="" class="img-logo">
+                        </div>
+                    </div>
+                    <div class="m-menu">
+                        <%= user.firstname %>
+                        <svg height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                    </div>
+                    <div class="upload-link">                           
+                        <a href="/membership/dashboard">
+                            <svg height="20px" viewBox="0 0 24 24" width="27px" class="log-icon"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                            DASHBOARD
+                        </a>
+                    </div>
+                    <div class="linker">
+                        <div class="m-close">&CircleTimes;</div>
+                        <div class="profile-preview">
+                            <div class="member-image ">
+                                <img src="../images/user.png" alt="member-image" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="member-title">
+                                <div class="name">
+                                    <%= user.firstname %>
+                                </div>
+                                <div class="email">
+                                    <%= user.email %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="linker-list-wrapper">
+                            <ul class="linker-list">
+                                <li class="list">
+                                    <a href="/membership/profile" class="link">
+                                        <svg enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><circle cx="10" cy="8" r="4"/><path d="M10.67,13.02C10.45,13.01,10.23,13,10,13c-2.42,0-4.68,0.67-6.61,1.82C2.51,15.34,2,16.32,2,17.35V20h9.26 C10.47,18.87,10,17.49,10,16C10,14.93,10.25,13.93,10.67,13.02z"/><path d="M20.75,16c0-0.22-0.03-0.42-0.06-0.63l1.14-1.01l-1-1.73l-1.45,0.49c-0.32-0.27-0.68-0.48-1.08-0.63L18,11h-2l-0.3,1.49 c-0.4,0.15-0.76,0.36-1.08,0.63l-1.45-0.49l-1,1.73l1.14,1.01c-0.03,0.21-0.06,0.41-0.06,0.63s0.03,0.42,0.06,0.63l-1.14,1.01 l1,1.73l1.45-0.49c0.32,0.27,0.68,0.48,1.08,0.63L16,21h2l0.3-1.49c0.4-0.15,0.76-0.36,1.08-0.63l1.45,0.49l1-1.73l-1.14-1.01 C20.72,16.42,20.75,16.22,20.75,16z M17,18c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S18.1,18,17,18z"/></g></g></svg>
+                                        Profile
+                                    </a>
+                                </li>                                
+                                <li class="list">
+                                    <a href="/membership/dashboard">
+                                        <svg height="26px" viewBox="0 0 24 24" width="27px" class="log-icon"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="/membership/upload">
+                                        <svg height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm3-10.17L14.17 8H13v6h-2V8H9.83L12 5.83zM5 18h14v2H5z"/></svg>
+                                        Upload
+                                    </a>
+                                    
+                                </li>
+                                <li class="list">
+                                    <a class="active" href="/membership/settings">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="log-icon" height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                        Settings
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="#" class="link">
+                                        <svg height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm3-10.17L14.17 8H13v6h-2V8H9.83L12 5.83zM5 18h14v2H5z"/></svg>
+                                        Updates
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="/membership/verification" class="link">
+                                        <svg height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                        Verification
+                                    </a>
+                                </li>
+                                <li class="list">
+                                    <a href="/logout" class="logout">
+                                        <svg height="24px" viewBox="0 0 24 24" width="24px" class="log-icon"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="settings-section">
+                <div class="settings-section-wrapper">
+                    <div class="settings-section-header">
+                        <div class="settings-header-title">
+                            <div class="settings-text">
+                                <svg class="log-icon" height="26px" viewBox="0 0 24 24" width="27px" class="log-icon"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                                <span>SETTINGS</span>
+                            </div>
+                            <h2>Hello <strong><%= user.firstname %></strong>, trust you are doing well <strong><%=// name %></strong></h2>
+                        </div>
+                    </div>
+                    <div class="settings-body">
+                            <div class="settings-body-wrapper">
+                                <div class="row">
+                                    <div class="settings-branch">
+                                        <div class="settings-branch-wrapper">
+                                            <div class="change-password-settings">
+                                                <div class="settings-text-wrapper">
+                                                    <h3>Change password</h3>
+                                                    <p>Change your password if yoou think your password is weak enough to be compromise.</p>
+                                                </div>
+                                            </div>
+                                            <div class="change-password-form-container">          
+                                                <form action="#" method="post" class="form1 ">
+                                                    <div class="message1 feedback"></div>
+                                                    <div class="form-wrapper">
+                                                        <button type="button" class="change-password settings-btn">Change</button>
+                                                        <div class="form-group">
+                                                            <input type="password" name="password" id="input" placeholder="Enter new password" class="password form-control" required>
+                                                            <i class="ion-ios-eye"></i>
+                                                            <div class="invalid-feedback">
+                                                                empty feed, all required
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="settings-branch">
+                                        <div class="settings-branch-wrapper">
+                                            <div class="change-email-settings">
+                                                <div class="settings-text-wrapper">
+                                                    <h3>Change Login Email</h3>
+                                                    <p>Note: the new email will be used as your login in detail.</p>
+                                                </div>
+                                            </div>
+                                            <div class="change-email-form-container">
+                                                <form action="#" method="post" class="form2 ">
+                                                    <div class="message2 feedback"></div>
+                                                    <div class="form-wrapper">
+                                                        <button type="button" class="change-email settings-btn">Change</button>
+                                                        <div class="form-group">
+                                                            <input type="email" name="email" id="email" placeholder="Enter new email" class="email form-control" required>
+                                                            <div class="invalid-feedback">
+                                                                empty feed, all required
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="settings-branch">
+                                        <div class="settings-branch-wrapper">
+                                            <div class="add-number-settings">
+                                                <div class="settings-text-wrapper">
+                                                    <h3>Change number</h3>
+                                                    <p>
+                                                        This is will be serve as an alternative to get to you fast and easier than through email.
+                                                         Fast reach, Fast reaponse.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="add-number-form-container">
+                                                <form action="#" method="post" class="form3 ">
+                                                    <div class="message3 feedback">
+
+                                                    </div>
+                                                    <div class="form-wrapper">
+                                                        <button type="button" class="change-number settings-btn">Change</button>
+                                                        <div class="form-group">
+                                                            <input type="text" name="number" placeholder="Tel" id="number" class="number form-control" required>
+                                                            <div class="invalid-feedback">
+                                                                empty feed, all required
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="settings-branch">
+                                        <div class="settings-branch-wrapper">
+                                            <div class="join-social-group">
+                                                <div class="join-social-group-list">
+                                                    <div class="settings-text-wrapper">
+                                                        <h3>Join our social group to get updates.</h3>
+                                                        <p>It would be nice if you can join out social groups, to not be left behind about our updates andd new features.</p>
+                                                    </div>
+                                                    <ul class="group-list">
+                                                        <li class="group-linker">
+                                                            <a href="" class="group-link whatsapp">
+                                                                <svg height="26px" width="26px" class="log-icon" viewBox='0 0 512 512'><title>Logo Whatsapp</title><path d='M414.73 97.1A222.14 222.14 0 00256.94 32C134 32 33.92 131.58 33.87 254a220.61 220.61 0 0029.78 111L32 480l118.25-30.87a223.63 223.63 0 00106.6 27h.09c122.93 0 223-99.59 223.06-222A220.18 220.18 0 00414.73 97.1zM256.94 438.66h-.08a185.75 185.75 0 01-94.36-25.72l-6.77-4-70.17 18.32 18.73-68.09-4.41-7A183.46 183.46 0 0171.53 254c0-101.73 83.21-184.5 185.48-184.5a185 185 0 01185.33 184.64c-.04 101.74-83.21 184.52-185.4 184.52zm101.69-138.19c-5.57-2.78-33-16.2-38.08-18.05s-8.83-2.78-12.54 2.78-14.4 18-17.65 21.75-6.5 4.16-12.07 1.38-23.54-8.63-44.83-27.53c-16.57-14.71-27.75-32.87-31-38.42s-.35-8.56 2.44-11.32c2.51-2.49 5.57-6.48 8.36-9.72s3.72-5.56 5.57-9.26.93-6.94-.46-9.71-12.54-30.08-17.18-41.19c-4.53-10.82-9.12-9.35-12.54-9.52-3.25-.16-7-.2-10.69-.2a20.53 20.53 0 00-14.86 6.94c-5.11 5.56-19.51 19-19.51 46.28s20 53.68 22.76 57.38 39.3 59.73 95.21 83.76a323.11 323.11 0 0031.78 11.68c13.35 4.22 25.5 3.63 35.1 2.2 10.71-1.59 33-13.42 37.63-26.38s4.64-24.06 3.25-26.37-5.11-3.71-10.69-6.48z' fill-rule='evenodd'/></svg>
+                                                            </a>
+                                                        </li>
+                                                        <li class="group-linker">
+                                                            <a href="" class="group-link facebook">
+                                                                <a href="#" class="facebook-link">
+                                                                    <svg enable-background="new 0 0 24 24" height="26px" width="26px" class="log-icon" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" /><path d="M22,12c0-5.52-4.48-10-10-10S2,6.48,2,12c0,4.84,3.44,8.87,8,9.8V15H8v-3h2V9.5C10,7.57,11.57,6,13.5,6H16v3h-2 c-0.55,0-1,0.45-1,1v2h3v3h-3v6.95C18.05,21.45,22,17.19,22,12z"/></svg>
+                                                                </a>
+                                                            </a>
+                                                        </li>
+                                                        <li class="group-linker">
+                                                            <a href="" class="group-link instagram">
+                                                                <svg height="26px" width="26px" class="log-icon" viewBox='0 0 512 512'><title>Logo Instagram</title><path d='M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z'/><path d='M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z'/></svg>
+                                                            </a>
+                                                        </li>
+                                                        <li class="group-linker">
+                                                            <a href="" class="group-link telegram">
+                                                                <a href="#">
+                                                                    <svg  height="26px" width="26px" class="log-icon" viewBox='0 0 512 512'><title>Logo Linkedin</title><path d='M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z'/></svg>
+                                                                </a>
+                                                            </a>
+                                                        </li>
+                                                        <li class="group-linker">
+                                                            <a href="" class="group-link twitter">
+                                                                <svg height="26px" width="26px" class="log-icon" viewBox='0 0 512 512'><title>Logo Twitter</title><path d='M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z'/></svg>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="settings-branch">
+                                        <div class="settings-branch-wrapper">
+                                            <div class="account-termination">
+                                                <div class="settings-text-wrapper">
+                                                    <h3>Account Termination</h3>
+                                                    <p>
+                                                        By terminating your account, all your details, uploads, and any other information stored about you will be deleted.
+                                                        Please note this is reversible once the termination button is clicked.
+                                                    </p>
+                                                </div>
+                                                <div class="termination-button-wrapper">
+                                                    <a href="/membership/delete" class="termination-link btn btn-primary text-center">
+                                                        Delete account
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+    <script src="../js/jquery.min.js"></script>
+    <!-- Script js -->
+    <script>
+        const d = document.querySelectorAll('.settings-branch-wrapper .form-control'),
+        btn = document.querySelectorAll(".settings-btn"),
+        tel = document.querySelector('.number'),
+        menu = document.querySelector('.m-menu'),
+        linker = document.querySelector('.linker'),
+        close = document.querySelector('.m-close');
+
+
+        tel.onkeyup = e => {
+            const num = ["0","1",'2','3','4','5','6','7','8','9','Shift']
+            
+            if(!num.includes(e.key) ){
+                tel.value = tel.value.substr(0,(tel.value.length - 1))
+            }   
+            
+        }
+        btn.forEach((el, i) => {
+            el.onclick = e => {
+
+                e.preventDefault();
+                d[i].classList.add('active');
+
+                
+            }
+        }),
+        menu.onclick = ()=>{
+            linker.classList.add('active')
+        }
+
+        close.onclick = ()=>{
+            linker.classList.remove('active')
+        }
+
+        !function(j){
+            j('.change-password').click(e => {
+                e.preventDefault();
+                const form = document.querySelector('.form1');
+
+                j('.change-password').addClass('active1').html("Update");
+
+                j('.active1').click(e => {
+                    e.preventDefault();
+
+                    if(!form.checkValidity()){
+                        j(form).addClass('was-validated');
+                        return                  
+                    };
+                    const data = {
+                        userPassword : j('.password').val()
+                    };
+
+                    (async () => {
+                        const fet = await fetch("/settings/update",{
+                            method: "POST",
+                            body:JSON.stringify(data),
+                            headers:{
+                                "Content-Type":"application/json"
+                            }
+                        });
+
+                        const fet_err = await fet.error,
+                        fet_res = await fet.text()
+
+                        if(!fet_err){
+                            if(fet_res === "success"){
+                                j('.message1').html("password updated").fadeIn(500).addClass('alert-success').addClass('alert').addClass("alert-dissmissible");
+                                j(".password").val("").removeClass('active');
+
+                                setTimeout(() => {
+                                    j('.form1').remove()
+                                }, 3000);
+                            }else{
+                                j(".message1").html(fet_res).fadeIn(500).addClass('alert-warning');
+                                setTimeout(() => {
+                                    j('.message1').html("").fadeOut(500).removeClass('alert-warning');
+                                }, 2000);
+                            }
+                        }else{
+                            j(".message1").html("unable to update now").fadeIn(500).addClass('alert alert-warning alert-dismissible');
+                            setTimeout(() => {
+                                j('.message1').html("").fadeOut(500).removeClass('alert','alert-warning',"alert-dismissible");
+                            }, 2000);
+                        }
+                    })()
+
+
+                })
+            })
+        
+            j('.change-number').click(e => {
+                e.preventDefault();
+                const form = document.querySelector('.form3');
+
+                j('.change-number').addClass('active3').html("Update");
+
+                j('.active3').click(e => {
+                    e.preventDefault();
+
+                    if(!form.checkValidity()){
+                        j(form).addClass('was-validated');
+                        return                  
+                    };
+
+                    const data = {
+                        userNumber : j('.number').val()
+                    };
+
+                    (async () => {
+                        const fet = await fetch("/settings/update",{
+                            method: "POST",
+                            body:JSON.stringify(data),
+                            headers:{
+                                "Content-Type":"application/json"
+                            }
+                        });
+
+                        const fet_err = await fet.error,
+                        fet_res = await fet.text()
+
+                        if(!fet_err){
+                            if(fet_res === "success"){
+                                j('.message3').html("Number updated").fadeIn(500).addClass('alert-success').addClass('alert').addClass("alert-dissmissible");
+                                j(".number").val("").removeClass('active');
+
+                                setTimeout(() => {
+                                    j('.form3').remove()
+                                }, 2000);
+                            }else{
+                                j(".message3").html(fet_res).fadeIn(500).addClass('alert-warning').addClass("alert");
+                                setTimeout(() => {
+                                    j('.message3').html("").fadeOut(500).removeClass('alert-warning').removeClass('alert');
+                                }, 2000);
+                            }
+                        }else{
+                            j(".message3").html("unable to update now").fadeIn(500).addClass('alert alert-warning alert-dismissible');
+                            setTimeout(() => {
+                                j('.message3').html("").fadeOut(500).removeClass('alert','alert-warning',"alert-dismissible");
+                            }, 2000);
+                        }
+                    })()
+
+
+                })
+            })
+        
+            j('.change-email').click(e => {
+                e.preventDefault();
+                const form = document.querySelector('.form2');
+
+                j('.change-email').addClass('active2').html("Update");
+
+                j('.active2').click(e => {
+                    e.preventDefault();
+
+                    if(!form.checkValidity()){
+                        j(form).addClass('was-validated');
+                        return                  
+                    };
+
+                    const data = {
+                        userEmail : j('#email').val()
+                    };
+
+                    (async () => {
+                        const fet = await fetch("/settings/update",{
+                            method: "POST",
+                            body:JSON.stringify(data),
+                            headers:{
+                                "Content-Type":"application/json"
+                            }
+                        });
+
+                        const fet_err = await fet.error,
+                        fet_res = await fet.text();
+
+                        if(!fet_err){
+                            if(fet_res == "success"){
+                                j('.message2').html("email updated").fadeIn(500).addClass('alert-success').addClass('alert').addClass("alert-dissmissible");
+                                j("email").val("").removeClass('active');
+
+                                setTimeout(() => {
+                                    j('.form2').remove()
+                                }, 2000);
+                            }else{
+                                j(".message2").html(fet_res).fadeIn(500).addClass('alert-warning alert');
+                                setTimeout(() => {
+                                    j('.message2').html("").fadeOut(500).removeClass('alert-warning').removeClass('alert');
+                                }, 2000);
+                            }
+                        }else{
+                            j(".message2").html("unable to update now").fadeIn(500).addClass('alert alert-warning alert-dismissible');
+                            setTimeout(() => {
+                                j('.message2').html("").fadeOut(500).removeClass('alert','alert-warning',"alert-dismissible");
+                            }, 2000);
+                        }
+                    })()
+
+
+                })
+            })
+        
+        }(jQuery)
+    </script>
+    <!-- End script js -->
+</body>
+</html>

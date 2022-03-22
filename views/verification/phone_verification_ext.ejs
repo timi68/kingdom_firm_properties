@@ -1,0 +1,61 @@
+<% if(!user.number){ %>
+    <div class="phone-verification-body-form body-form phone-form-group">
+        <div class="phone-message v-message">
+        </div>
+        <div class="form-container display">
+            <form action="#" class=" phone-form1 form1 form-group input-wrapper">
+                <div class="form-wrapper">
+                    <div class="display-flex code-formgroup-wrapper">
+                        <div class="country-code-group">
+                            <div class="code">
+                                <div class="flag">
+    
+                                </div>
+                                <div class="code-text">
+                                    <span>+234</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-input-wrapper"> 
+                            <input type="tel" name="phone" placeholder="Enter number" id="phone" required class="form-control text-carrier phone-number input">
+                            <div class="invalid-feedback">
+                                Input box empty, please enter your number.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <button type="button" class="submit-button verify-phone">
+                            submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!-- <form action="#" class="phone-form2 form2 code-getter-form form-group">
+                <div class="code-getter-wrapper">
+                    <div class="form-group code-form-taker code-transporter">
+                        <input type="text" placeholder="Enter code" name="code" id="code" class="code-text form-control phone-code" required>
+                        <div class="invalid-feedback">
+                            Enter code to verify your number.
+                        </div>
+                    </div>
+                </div>
+                <div class="verify-code">
+                    <button type="button" class="button submit-button verify-phone">
+                        Verify
+                    </button>
+                    <div class="resend-wrapper">
+                        <p>Didn't get a code ? <span class="resend resend-phone">Resend</span></p>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+    </div>
+<% }else { %>
+   
+<div class="body-text">
+    <div class="small-text verified-text">
+        <p class="verified">Your Phone number <strong class="phone"><%= user.number %></strong> has been <span class="verify">Verified Successfully</span></p>
+    </div>
+</div>
+
+<% } %>

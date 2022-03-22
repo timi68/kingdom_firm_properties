@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/error_page.css">
+    <title>404 Error Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="page_text">
+                <h1>404 Page Error</h1>
+                <p>Woops page not found</p>
+                <%- include('validation') -%>
+            </div>
+            <div class="ag-page-404">
+                <div class="ag-toaster-wrap">
+                  <div class="ag-toaster">
+                    <div class="ag-toaster_back"></div>
+                    <div class="ag-toaster_front">
+                      <div class="js-toaster_lever ag-toaster_lever"></div>
+                    </div>
+                    <div class="ag-toaster_toast-handler">
+                      <div class="ag-toaster_shadow"></div>
+                      <div class="js-toaster_toast ag-toaster_toast js-ag-hide"></div>
+                    </div>
+                  </div>
+              
+                  <canvas id="canvas-404" class="ag-canvas-404"></canvas>
+                  <img class="ag-canvas-404_img" src="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/smoke.png">
+                </div>
+              </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/error_page.js"></script>
+</body>
+</html>

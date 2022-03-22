@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/services.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <%- include('general/header') -%>
+            <div class="terms-container">
+                <div class="terms-wrapper">
+                    <div class="terms-header">
+                        <div class="terms-text main-text large-text">
+                            <h3 class="large-text">Terms Of Services</h3>
+                        </div>
+                    </div>
+                    <div class="terms-body">
+                        <div class="terms-body-container">
+                            <div class="terms-body-wrapper">
+                                <div class="terms-body-header">
+                                    <div class="terms-body-header-text">
+                                        <h4>What Are How Services ?</h4>
+                                    </div>
+                                </div>
+                                <div class="terms-body-main-text">
+                                    <p>
+                                        How services started from getting you to this web to explore and make life easier, 
+                                        we bring properties close to you: the ones for leasing, the ones for hire and even 
+                                        the ones for sale
+                                    </p>
+                                    <p>
+                                        We showcase all kinds of properties on this website for the our clients to view and
+                                        choose based on their budgets because all price are included on every property, 
+                                        even if the property is negotiable is also included on every property uploads.
+                                    </p>
+                                    <p>
+                                        We even make it easy for clients to get what they need easily using specific search 
+                                        type, which the board is sure that, it's going to make user experience on the web 
+                                        look so easy and interesting.
+                                    </p>
+
+                                    <div class="sub-header">
+                                        <div class="sub-header-title">
+                                            <h4>
+                                                We Connect Agents To Acts as one
+                                            </h4>
+                                        </div>
+                                        <div class="sub-header-text">
+                                            <p>
+                                                Agents are connected through this website, this site where many agent collaborate 
+                                                together to bring to you available properties for sale and even for hire .
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="sub-header">
+                                        <div class="sub-header-title">
+                                            <h4>
+                                                How we handle our members 
+                                            </h4>
+                                        </div>
+                                        <div class="sub-header-text">
+                                            <p>
+                                                We strictly adhere to every participation of all members. if we notice that a member 
+                                                participation is low or member uploads are fake: like wasting clients time, The board 
+                                                can remove and delete member account, member will not be allowed be allowed to 
+                                                upload anymore.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('general/footer') -%>
+    
+    <!-- page script javascript -->
+    <script>
+        window.onload = e => {
+            const link = document.querySelector('a.check-link'),
+            terms = document.querySelector('.terms')
+
+            link.innerText = "Home";
+            link.setAttribute('href',"/");
+            link.setAttribute('class', "home")
+
+            terms.parentElement.classList.add('active');
+        }
+
+
+    </script>
+</body>
+</html>

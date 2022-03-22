@@ -1,0 +1,33 @@
+.terms-container {
+  margin: 100px auto;
+  max-width: 800px;
+  padding: 10px 20px;
+}
+
+.terms-container h3.large-text {
+  padding: 7px 15px;
+  -webkit-box-shadow: 0px 0px 3px var(--dark-grey);
+          box-shadow: 0px 0px 3px var(--dark-grey);
+  color: var(--dark-grey);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.terms-container .terms-body-header-text p {
+  font-weight: 500;
+  font-size: var(--small);
+}
+
+.terms-container .terms-body-main-text p {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--dark-grey);
+}
+
+.terms-container .sub-header {
+  margin-top: 50px;
+}
+/*# sourceMappingURL=services.css.map */

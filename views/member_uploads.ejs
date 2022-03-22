@@ -1,0 +1,71 @@
+<% if(typeof(data) != "undefined") { %>
+    <% if(typeof(data) != "object"){ %>
+        <div class="empty_upload">
+            <h3>You don't have any uploads yet</h3>
+            <div class="no-upload">
+                <div class="upload-link">
+                    <a href="/membership/upload">Upload Now</a>
+                </div>
+            </div>
+        </div>
+    <%}else{%>
+        <% data.forEach(el => { %>
+            <div class="card" id="<%= el._id %>">
+                <div class="card-wrapper">
+                    <div class="card-header">
+                        <div class="card-image">
+                            <img class="img-fluid" src="<%= el.prop_images[0].secure_url%>" alt="<%= el.title %> image">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <ul class="card-list">
+                                <li class="card-title">
+                                    <h4><%= el.title %></h4>
+                                </li>
+                                <li class="card-location">
+                                    <b class="located">Located : </b>
+                                    <span class="location-title">
+                                         <span>
+                                             at <%= el.lga %>
+                                            local government,
+                                        </span>
+                                        <h6><%= el.state %> State.</h6>
+                                    </span>
+                                </li>
+                                <li class="card-price">
+                                    <b class="price">Price : </b>
+                                    <strong>&#8358;</strong>
+                                    <span class="price-title">
+                                        <%= Number(el.price).toLocaleString() %>
+                                    </span>
+                                </li>
+                                <li class="card-status">
+                                    <b class="status">Status : </b>
+                                    <span class="status-title"> <%= el.status %> </span>
+                                </li>
+                                <li class="card-negotiable">
+                                    <b class="nego">Negotiable? : </b>
+                                    <span class="nego-title"> <%= el.negotiable %> </span>
+                                </li>
+                            </ul>
+                            <div class="member-linker">
+                                <a id="update" href="/property/update?property_id=<%= el._id %>" class="update">
+                                    <svg enable-background="new 0 0 64 64" height="40px" class="log-icon" version="1.1" viewBox="0 0 64 64" width="35px" xml:space="preserve"><g><path d="M55.736,13.636l-4.368-4.362c-0.451-0.451-1.044-0.677-1.636-0.677c-0.592,0-1.184,0.225-1.635,0.676l-3.494,3.484   l7.639,7.626l3.494-3.483C56.639,15.998,56.639,14.535,55.736,13.636z"/><polygon points="21.922,35.396 29.562,43.023 50.607,22.017 42.967,14.39  "/><polygon points="20.273,37.028 18.642,46.28 27.913,44.654  "/><path d="M41.393,50.403H12.587V21.597h20.329l5.01-5H10.82c-1.779,0-3.234,1.455-3.234,3.234v32.339   c0,1.779,1.455,3.234,3.234,3.234h32.339c1.779,0,3.234-1.455,3.234-3.234V29.049l-5,4.991V50.403z"/></g></svg>
+                                </a>
+                                <a id="<%= el._id %>" href="#" class="delete">
+                                    <svg height="40px" viewBox="0 0 24 24" width="40px" class="log-icon"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"/></svg>
+                                </a>
+                                <a href="/explore/overview?q=<%=el._id%>" id="overview" class="overview">
+                                    <svg id="Layer_1_1_" style="enable-background:new 0 0 16 16;" width="40px" height="40px" version="1.1" viewBox="0 0 16 16" xml:space="preserve" class="log-icon"><path d="M8,3C3.582,3,0,8,0,8s3.582,5,8,5s8-5,8-5S12.418,3,8,3z M8,11c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S9.657,11,8,11  z"/></svg>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+    <% } %>
+   

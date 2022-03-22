@@ -1,0 +1,454 @@
+
+/**------  Section of welcoming screen stylesheet------- **/
+.back-to-top{
+    background:var(--lighterblue);
+    color:white;
+    font-size:15px;
+    background:var(--grey);
+    border-radius:5px;
+    position:fixed;
+    right:5px;
+    bottom:20px;
+    cursor: pointer;
+    padding:5px;
+    display:none;
+    z-index:1000;
+}
+.welcome-screen{
+    position: relative;
+    width:100%;
+    height:calc(100vh - 100px);
+
+}
+.swiper-container{
+    position: absolute;
+    z-index:10;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+}
+.swiper-slide video{
+    width:100vw;
+    height:auto;
+    
+}
+@media (max-width: 910px) and (min-height:500px){
+    .swiper-slide video{
+        height:100%;
+    }
+    
+}
+.timer{
+    height:3px;
+    width:0px;
+    background:var(--white);
+    animation: timer 10.5s infinite ease-in-out;
+}
+
+@keyframes timer{
+    100%{
+        width:100%
+    }
+}
+.welcome-center{
+    height:100%;
+    position: relative;
+    background:rgba(0, 0, 0, 0.863);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    transition:var(--normal-trans);
+    width:100%;
+}
+@media(max-width: 450px){
+    .swiper-container{
+        display: none;
+    }
+    .welcome-center{
+        background:transparent
+    }
+    .timer{
+        display:none;
+    }
+}
+.welcome-text h1{
+    font-weight:800;
+    font-size:50px;
+    transition:var(--normal-trans);
+    color:var(--dark-grey)
+}
+
+.welcome-screen-image img{
+    width:350px;
+    display:block;
+    transition:var(--normal-trans);
+}
+
+@media (max-width:800px){
+    .welcome-text h1{
+        font-weight:800;
+        font-size:35px;
+        
+    }
+    .welcome-screen-image img{
+        width:300px;
+    }
+}
+@media (max-width:650px){
+    .welcome-text h1{
+        font-weight:800;
+        font-size:28px;
+        
+    }
+    .welcome-screen-image img{
+        width:250px;
+    }
+}
+@media (max-width:550px){
+    .welcome-center{
+        flex-direction:column;
+    }
+    .welcome-text h1{
+        font-weight:800;
+        font-size:28px;
+        
+    }
+    .welcome-screen-image img{
+        width:250px;
+    }
+}
+/** ------ This is section of the fast preveiw stylesheet------- ***/
+.fast-preview{
+    background:var(--grey);
+    padding:100px 8px;
+    box-shadow:inset 0px 0px 50px 5px #0a0a0a;
+    z-index:1000;
+    
+}
+
+.preview-wrapper{
+    max-width:1200px;
+    margin:auto;
+}
+.fast-preview-title{
+    text-align:center;
+    border-radius:10px;
+    padding:20px 10px;
+    margin-bottom:20px;
+    background:#1b1b1b;
+    color:var(--dark-grey)
+}
+.fast-preview-title h2{
+    font-size:30px;
+    font-weight:700;
+    font-family:calibri;
+}
+.card-wrappers{
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;
+    width:100%;
+    max-height:830px;
+    overflow-x:hidden;
+    overflow-y: scroll;
+}
+.card-wrappers::-webkit-scrollbar{
+    width:10px;
+    background:var(--grey-black);
+    border-radius:100%;
+}
+.card-wrappers::-webkit-scrollbar-thumb{
+    border-radius:100%;
+    background:var(--black);
+}
+.row{
+    margin:0;
+}
+.result-title{
+    text-align:center;
+    padding:10px;
+}
+
+.card{
+    width:330px;
+    background:#1b1b1b;
+    margin-right:10px;
+    margin-bottom: 15px;
+}
+@media(max-width:500px){
+    .card{
+        margin-right:0;
+    }
+    .fast-preview-title h2{
+        font-size:var(--small);
+    }
+}
+.card-header{
+    padding:10px;
+    height:220px;
+}
+.card-image{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+.card-image::before{
+    position:absolute;
+    content:"";
+    top:0;
+    box-shadow: inset 0px 0px 25px 10px black;
+    right:0;
+    bottom:0;
+    left:0;
+    background:transparent;
+    z-index:10;
+}
+.card-image img{
+    height: 100%;
+    width:100%;
+}
+.card-body{
+    padding:10px;
+    position:relative;
+    height:250px;
+}
+.card-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.card-title h4{
+    font-size:var(--small);
+    color:white;
+    text-align: center;
+    padding:10px;
+    border-radius:10px;
+    background:#161616
+}
+.card-list li b{
+    color:#606161;
+}
+.card-list li{
+    line-height:18px;
+    margin-bottom:5px;
+}
+.card-list li span{
+    font-size:var(--smaller);
+}
+.no-more{
+    text-align:center;
+    width:100%;
+    display:block;
+    background:#161616;
+    padding:10px;
+    margin-top:10px;
+    text-decoration:none;
+    color:grey;
+    border-radius:10px;
+    font-weight:500;
+
+}
+
+.see-more-wrap{
+    margin:auto;
+    max-width:100px;
+    margin-top:30px;
+}
+
+.see-more{
+    color:var(--dark-grey);
+    background: hsl(0, 2%, 13%);
+    padding:10px;
+    border-radius:5px;
+    font-weight:500;
+    font-size:var(--smaller)
+}
+
+/*------ This Third section that attract student Styelsheet -----*/
+.attract-wrapper{
+    min-height: 500px;
+    width:100%;
+    align-items: center;
+    transition:var(--normal-trans);
+    justify-content: center;
+}
+.attract-text{
+    z-index:5;
+    transition:var(--normal-trans);
+}
+.text{
+    margin-bottom:20px;
+}
+.attract-text .text h2{
+    font-weight:800;
+}
+.attract-text strong{
+    font-size:var(--small);
+    font-weight:500;
+    line-height: 18px;
+}
+.attract-link{
+    padding:10px 30px;
+    box-shadow:0px 2px 4px var(--grey),
+    inset 0px 0px 5px 2px var(--dark-grey);
+    color:var(--dark-grey);
+    border-radius:50px;
+    font-weight:500;
+}
+.attract-image img{
+    max-width:100%;
+    border-radius: 50%;
+    transition:var(--normal-trans);
+}
+
+@media (max-width:750px){
+    .attract-text{
+        min-width:50%;
+    }
+    .attract-image{
+        min-width:50%;
+    }
+}
+@media (max-width: 630px){
+   .attract-wrapper{
+       flex-direction: column;
+       padding-top:50px;
+       padding-bottom:50px;
+   }
+   .attract-text{
+       min-width:90%;
+       margin-bottom:20px;
+   }
+   .attract-image{
+       min-width:100%;
+   }
+}
+
+@media (max-width:350px){
+    .attract-text .text h2{
+        font-size:25px;
+    }
+}
+/**------ This is the fourth section that tells about check in -------***/
+.check-in{
+    background:var(--grey);
+    transition:var(--normal-trans);
+}
+.check-in-wrapper{
+    padding:50px 20px;
+}
+.check-in strong, .check-in b{
+    color:lightgrey;
+}
+.check-in-body{
+    max-width:800px;
+    font-weight:500;
+    margin:auto;
+}
+.check-in-title{
+    text-align:center;
+    margin-bottom:20px;
+}
+.check-in-title h1{
+    font-weight:700;
+    color: lightgrey;
+}
+
+.check-list{
+    list-style-type:georgian
+}
+.check-list li{
+    margin-bottom:30px;
+}
+.check-title h3{
+    font-size:25px;
+    color:lightgrey;
+    font-weight:500;
+}
+.check-in{
+    color:var(--dark-grey)
+}
+:is(.explore-shortcut ,.membership-shortcut){
+    box-shadow:0px 2px 4px var(--grey),
+    inset 0px 0px 5px 2px var(--dark-grey);
+    color:var(--dark-grey);
+}
+
+/*****  This is the fifth section that show the user we are real estate management -----  *****/
+
+.members-shortcut-wrapper{
+    min-height:500px;
+}
+.members-shortcut-body{
+    align-items: center;
+    justify-content: center;
+    min-height:inherit;
+}
+.members-shortcut-header{
+    z-index:5;
+    transition:var(--normal-trans);
+}
+.shortcut-man-text h1{
+    font-weight:800;
+    transition:var(--normal-trans);
+}
+.small-text p strong{
+    color:var(--dark-grey)
+}
+
+.shortcut-image img{
+    max-width:100%;
+    border-radius: 50%;
+    transition:var(--normal-trans);
+}
+
+@media (max-width:850px){
+    .shortcut-image img{
+        width:350px;
+    }
+     
+}
+  
+@media (max-width:750px){
+    .shortcut-man-text h1{
+        font-weight:800;
+    }
+    .members-shortcut-header{
+        min-width:50%
+    }
+    .members-shortcut-section {
+        min-width:50%;
+    }
+    .shortcut-image img{
+        max-width:100%;
+    }
+
+}
+@media (max-width:630px){
+    .members-shortcut-body{
+        display: flex;
+        flex-direction:column;
+        padding-top:50px;
+        padding-bottom:50px;
+    }
+    .members-shortcut-header{
+        min-width:90%;
+        margin-bottom:20px;
+    }
+    .members-shortcut-section {
+        min-width:100%;
+    }
+    
+    .shortcut-image img{
+        min-width:100%;
+    }
+
+}
+@media (max-width:350px){
+    .shortcut-man-text h1{
+        font-weight:800;
+        font-size:25px;
+    }
+}

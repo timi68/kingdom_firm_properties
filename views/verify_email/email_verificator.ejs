@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/db.custom.css">
+    <title>Membership | Email Verificator</title>
+</head>
+<body>
+    <div class="container-fluids">
+        <div class="wrapper">
+            <header class="home-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+                        <div class="logo-image">
+                            <img src="/images/logo.png" alt="" class="img-logo">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="verification-container card">
+                <div class="verification-wrapper">
+                    <div class="verification-header">
+                        <div class="verification-title">
+                            <h1>Verify your email</h1>
+                        </div>
+                    </div>
+                    <div class="verification-body">
+                        <div class="verification-text">
+                           <h4> An email  has been sent to your gmail <strong><%= verified == "" ? "" : verified %></strong></h4>
+                            <p>This helps us to know if this email is still valid.</p>
+                        </div>
+                        <div class="div">
+                            <h3>Please check your email for verfication of the email registered</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/gsap_animation.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+
+        !function(j){
+
+                //---------------------------------------------
+                //this is the reveal action part if the weebsite
+                //----------------------------------------------
+
+            gsap.from('.container-fluids', {duration: 2, y: '-30%', ease: 'bounce'})
+
+            let params = window.location.search,
+                url= '/verify_email',
+                reader = new URLSearchParams(params),
+                getter = reader.get("id");
+                
+            $('.id').val(getter);
+
+
+            const b = document.querySelector('.verify'),
+            f = document.querySelector('form')
+
+            j('.close').click(e => {
+                e.preventDefault();
+                j('.alert').fadeOut(1000)
+            }),
+            setTimeout(()=>{
+                j('.alert').fadeOut(500)
+            },3000),
+            j(b).click((e)=>{
+                e.preventDefault()
+                console.log('clicked')
+                if(!f.checkValidity()){
+                    f.classList.add('was-validated');
+                    return
+                }
+                
+                j(f).attr("action","/verify_email").attr('method',"POST").submit()
+            })
+
+
+        }(jQuery)
+
+    </script>
+</body>
+</html>
