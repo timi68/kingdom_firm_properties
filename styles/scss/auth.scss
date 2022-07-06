@@ -1,0 +1,144 @@
+@import "./mixins";
+@import "./variables";
+
+// ----------- Form stylesheet-----------------
+// --------------------------------------------
+
+.form-box {
+	flex-grow: 0;
+	overflow: auto;
+	width: auto;
+	padding: 3em;
+	box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
+	position: relative;
+	display: grid;
+	place-items: center;
+	background: #fff;
+	flex-grow: 0;
+	width: 500px;
+	max-width: 95%;
+	margin: auto;
+	height: 90%;
+
+	@include media_400 {
+		padding-inline: 1em;
+	}
+
+	.form-group {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.form-label {
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 3em;
+		font-size: map-get($map: $fonts, $key: "small");
+	}
+
+	.form-control {
+		margin-block: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		width: 100%;
+
+		.label-text {
+			font-weight: 500;
+			font-size: 0.9em;
+			color: map-get($map: $colors, $key: "blue");
+		}
+
+		.text-control {
+			font-family: Poppins;
+			padding: 1em 1.5em;
+			width: 100%;
+			background: #fff;
+			font-size: 0.9em;
+			max-width: 100%;
+			border-radius: 50px;
+			box-shadow: 0 0 3px map-get($map: $colors, $key: "blue");
+			// border: thin solid map-get($map: $colors, $key: "blue");
+		}
+	}
+
+	.action-control {
+		// width: fit-content;
+		// margin: auto;
+		margin-block: 2em;
+		.submit-btn {
+			padding: 0.8em;
+			// background: map-get($map: $colors, $key: "blue");
+			background: map-get($map: $colors, $key: "blue");
+			color: #fff;
+			text-align: center;
+			width: 100%;
+			font-weight: 600;
+			text-transform: uppercase;
+			font-size: map-get($map: $fonts, $key: "small");
+			border-radius: 30px;
+		}
+	}
+
+	.link {
+		margin-block: 1em;
+
+		.text span:first-child {
+			display: flex;
+			gap: 0.3em;
+			flex-wrap: wrap;
+			justify-content: center;
+			font-size: 0.9em;
+		}
+
+		a {
+			color: map-get($map: $colors, $key: "blue");
+			font-weight: 600;
+		}
+	}
+}
+
+.auth {
+	height: fit-content;
+	position: relative;
+
+	.swiper {
+		position: absolute;
+		// height: 100%;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		bottom: 0;
+
+		.swiper-image {
+			filter: brightness(30%);
+		}
+	}
+	.logo-wrapper {
+		padding: 2em;
+		display: grid;
+		place-items: center;
+	}
+}
+
+// ----------------- Login Component StyleSheet-------------------
+// ---------------------------------------------------------------
+
+.auth-wrapper {
+	padding-block: 1em 3em;
+	position: relative;
+	z-index: 10;
+}
+
+// ------------------Register Component StyleSheet Edit -----------------
+// ----------------------------------------------------------------------
+
+.register-wrapper {
+	.form-label {
+		.secondary-text {
+			font-size: 0.8em;
+			font-weight: 400;
+			color: map-get($map: $colors, $key: "black");
+		}
+	}
+}

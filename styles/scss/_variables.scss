@@ -1,0 +1,25 @@
+$coral: #ea920f;
+$purple: #09455c;
+$yellow: #ffd900;
+$colors: (
+	"blue": #1976d2,
+	"low-white": rgba(255, 255, 255, 55%),
+	"grey": rgba(0, 0, 0, 0.7),
+	"lowblue": #0089c5,
+);
+
+$fonts: (
+	"smaller": 0.75em,
+	"small": 1em,
+	"medium": 1.3em,
+	"large": 1.6em,
+	"larger": 2em,
+	"xx-large": 2.5em,
+);
+
+$shadow: (
+	"card-shadow": 0 4px 10px 0 rgba(0, 0, 0, 50%),
+	"normal-shadow": 0 2.5px 4px 0 rgba(0, 0, 0, 25%),
+);
+
+$transition: all 0.2s ease-in-out;

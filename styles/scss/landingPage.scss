@@ -1,0 +1,368 @@
+@import "./variables";
+@import "./mixins";
+
+.banner {
+	position: relative;
+	margin-bottom: 25em;
+
+	@include media_400 {
+		margin-bottom: 15em;
+	}
+	.layer-content {
+		position: absolute;
+		top: 150px;
+		left: 50%;
+		width: 500px;
+		max-width: 90%;
+		transform: translateX(-50%);
+		color: #fff;
+		margin: auto;
+		text-align: center;
+
+		.primary-text {
+			font-weight: 600;
+			letter-spacing: 0.1em;
+			margin-bottom: 5px;
+			font-size: map-get($map: $fonts, $key: "medium");
+		}
+
+		.secondary-text {
+			font-size: map-get($map: $fonts, $key: "smaller");
+			color: map-get($map: $colors, $key: "low-white");
+			max-width: 300px;
+			margin: auto;
+			line-height: 1.8em;
+		}
+	}
+
+	.banner-image {
+		max-width: 85%;
+		width: 500px;
+		position: absolute;
+		left: 50%;
+		bottom: -60%;
+		transform: translateX(-50%);
+		transition: $transition;
+
+		@include media_500 {
+			bottom: -40%;
+		}
+
+		@include media_400 {
+			bottom: -30%;
+		}
+	}
+}
+
+.features {
+	// padding: 1em;
+	max-width: 1100px;
+	margin: auto;
+	margin-bottom: 10em;
+
+	.features-header {
+		margin-bottom: 2em;
+		.title {
+			font-weight: 600;
+			text-align: center;
+			font-size: map-get($map: $fonts, $key: "medium");
+			color: map-get($map: $colors, $key: "title-color");
+		}
+	}
+
+	.cards-wrapper {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1em;
+		padding: 1em;
+		justify-content: center;
+		max-width: 100%;
+		margin: auto;
+
+		.card {
+			background: map-get($map: $colors, $key: "lightblue");
+			width: 340px;
+			max-width: 95%;
+			position: relative;
+
+			@include media_700 {
+				width: 450px;
+			}
+
+			.CardActionArea {
+				height: 100%;
+			}
+			.card-content {
+				padding: 3em 3em;
+				margin-bottom: 3em;
+				font-family: Poppins;
+				height: 100%;
+			}
+
+			.card-icon {
+				padding: 5px 10px;
+				border-radius: 10px;
+				width: fit-content;
+				background-color: map-get($map: $colors, $key: "skyblue");
+			}
+			.card-title {
+				font-weight: 500;
+				margin-block: 1em;
+				color: map-get($map: $colors, $key: "title-color");
+			}
+			.card-text {
+				font-size: 0.9em;
+				font-weight: 400;
+				line-height: 1.8em;
+				color: rgba(0, 0, 0, 0.7);
+			}
+			.card-link {
+				display: flex;
+				justify-content: flex-end;
+				margin-top: 1em;
+				position: absolute;
+				bottom: 1em;
+				right: 3em;
+
+				.link-label {
+					font-size: 0.9em;
+					color: map-get($map: $colors, $key: "title-color");
+					text-transform: uppercase;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
+
+.ecosystem-container {
+	.wrapper {
+		width: 1200px;
+		max-width: 90%;
+		margin: auto;
+		margin-bottom: 10em;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 2em;
+
+			.primary-text {
+				font-weight: 600;
+				margin-bottom: 5px;
+				font-size: map-get($map: $fonts, $key: "medium");
+				color: map-get($map: $colors, $key: "title-color");
+			}
+			.secondary-text {
+				font-size: 0.8em;
+				line-height: 1.7;
+				max-width: 400px;
+				margin: auto;
+				color: rgba(0, 0, 0, 0.7);
+			}
+		}
+
+		.logo-list {
+			margin-top: 1em;
+			border-radius: 3px;
+			padding: 3em;
+			display: flex;
+			gap: 1em;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			background-color: map-get($map: $colors, $key: "lightblue");
+			box-shadow: map-get($map: $shadow, $key: "card-shadow");
+
+			.logo {
+				background-color: #fff;
+				padding: 5px 1em;
+				margin-bottom: 10px;
+				border-radius: 30px;
+			}
+		}
+	}
+}
+
+.video-section {
+	padding-block: 10em;
+	// color: grey;
+	position: relative;
+	margin-bottom: 10em;
+	background-color: map-get($map: $colors, $key: "lightblue");
+	// background-image: linear-gradient(
+	// 	to bottom,
+	// 	rgb(117, 117, 198),
+	// 	rgb(53, 53, 161)
+	// );
+
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3em;
+		align-items: center;
+		justify-content: center;
+		width: 1000px;
+		max-width: 90%;
+		margin: auto;
+	}
+	.video-layout {
+		position: relative;
+		width: 400px;
+		max-width: 100%;
+		margin: auto;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.section-content {
+		width: 400px;
+		max-width: 100%;
+		z-index: 10;
+		position: relative;
+
+		.title {
+			font-weight: 600;
+			margin-bottom: 1em;
+		}
+		.text {
+			color: map-get($map: $colors, $key: "black");
+			font-size: 0.8em;
+			font-weight: 400;
+			line-height: 1.8em;
+		}
+	}
+
+	.links-wrapper {
+		display: flex;
+		margin-top: 1em;
+		gap: 1em;
+
+		img {
+			border-radius: 10px;
+		}
+	}
+	.custom-shape-divider-top-1644282389 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.custom-shape-divider-top-1644282389 svg {
+		position: relative;
+		display: block;
+		width: calc(214% + 1.3px);
+		height: 53px;
+	}
+
+	.custom-shape-divider-top-1644282389 .shape-fill {
+		fill: #ffffff;
+	}
+
+	.custom-shape-divider-bottom-1644207901 {
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+		transform: rotate(180deg);
+	}
+
+	.custom-shape-divider-bottom-1644207901 svg {
+		position: relative;
+		display: block;
+		width: calc(300% + 1.3px);
+		height: 43px;
+		transform: rotateY(180deg);
+	}
+
+	.custom-shape-divider-bottom-1644207901 .shape-fill {
+		fill: #ffffff;
+	}
+}
+
+.newsletter-section {
+	// background: whitesmoke;
+	box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+	max-width: 1000px;
+	width: 90%;
+	margin: auto;
+	margin-bottom: 3em;
+	padding: 3em;
+	border-radius: 10px;
+
+	.wrapper {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2em;
+		align-items: center;
+	}
+
+	.section-info {
+		max-width: 400px;
+		color: map-get($map: $colors, $key: "black");
+
+		.section-icon {
+			background: #233664;
+			padding: 0.1em 0.2em;
+			width: fit-content;
+			border-radius: 10px;
+			display: grid;
+		}
+	}
+
+	.section-form {
+		flex-grow: 1;
+		max-width: 400px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-width: 300px;
+
+		.form-control {
+			width: 100%;
+		}
+		.text-control {
+			padding: 1em;
+			background: #ececec;
+			border-radius: 5px;
+			margin: auto;
+			font-size: 1em;
+			font-family: Poppins;
+			display: block;
+			width: 90%;
+
+			@include media_700 {
+				width: 100%;
+			}
+		}
+		.action-btn {
+			width: fit-content;
+			margin: auto;
+			margin-top: 0.5em;
+		}
+	}
+	@include media_400 {
+		padding: 3em 1.5em;
+		.section-form {
+			min-width: 90%;
+		}
+	}
+	.primary-text {
+		font-weight: 600;
+		margin-block: 1em;
+	}
+
+	.secondary-text {
+		font-size: 0.8em;
+		line-height: 1.8em;
+		font-weight: 400;
+		color: rgba(0, 0, 0, 0.7);
+	}
+}

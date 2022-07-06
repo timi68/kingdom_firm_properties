@@ -1,0 +1,246 @@
+@import "./mixins";
+@import "./variables";
+
+.explore-content {
+	display: flex;
+	position: relative;
+
+	@include media_950 {
+		display: block;
+	}
+}
+.search-filter-container {
+	background: #fff;
+	min-width: 300px;
+	flex: 0.3;
+	margin: 1em 1em;
+	border-radius: 10px;
+	transition: left 0.5s ease-in-out;
+	z-index: 100;
+	box-shadow: map-get($map: $shadow, $key: "normal-shadow");
+	// margin: auto;
+
+	@include media_950 {
+		position: absolute;
+		left: -100%;
+		top: 0;
+		padding: 0;
+		margin: 0;
+		border-radius: 0 0 10px 0;
+	}
+
+	&.visible {
+		left: 0;
+	}
+
+	.search-filter {
+		max-height: auto;
+		overflow: hidden;
+		border-radius: 10px;
+		width: 100%;
+		padding: 1em;
+
+		.search-filter-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1em;
+
+			.title {
+				font-weight: 500;
+				font-size: map-get($map: $fonts, $key: "small");
+				position: relative;
+				padding-bottom: 10px;
+				color: #e47e10;
+
+				&::before {
+					position: absolute;
+					content: "";
+					width: 120%;
+					height: 5px;
+					border-radius: 50px;
+					background: #e47e10;
+					bottom: 0;
+				}
+			}
+		}
+
+		.control-label {
+			font-weight: 500;
+			font-size: map-get($map: $fonts, $key: "smaller");
+			margin-bottom: 2em;
+
+			&.price-range {
+				margin-bottom: 6em;
+			}
+		}
+
+		.filter-form-group {
+			margin-bottom: 2em;
+			position: relative;
+			padding-bottom: 1em;
+
+			&::before {
+				position: absolute;
+				content: "";
+				left: 0%;
+				right: 0%;
+				border-radius: 50px;
+				bottom: 0;
+				border-bottom: thin solid rgba(128, 128, 128, 0.468);
+			}
+			.form-control {
+				display: flex;
+				gap: 1em;
+				margin-bottom: 1em;
+				align-items: center;
+
+				.check-control {
+					appearance: none;
+					width: 20px;
+					border-radius: 10px;
+					height: 20px;
+					border: thin dashed grey;
+
+					&:checked {
+						background-color: grey;
+						// border-color: rgb(7, 105, 161);
+					}
+				}
+
+				.label {
+					font-size: map-get($map: $fonts, $key: "smaller");
+					font-weight: 500;
+				}
+
+				.text-control {
+					width: 50px;
+					padding: 10px 5px;
+					border-radius: 10px;
+					background: lightgrey;
+					text-align: center;
+				}
+			}
+
+			.price-display {
+				display: grid;
+				place-items: center;
+			}
+		}
+
+		.form-group {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1em;
+			align-items: center;
+			// margin-bottom: 1em;
+		}
+	}
+
+	.apply-btn {
+		width: 100%;
+		font-weight: 500;
+		padding: 0.8em 1em;
+		text-align: center;
+		color: #fff;
+		background: $coral;
+		text-transform: uppercase;
+	}
+}
+
+.matched-searched-section {
+	padding: 1em 1em 3em;
+
+	.search-form-group-wrapper {
+		display: inline-flex;
+		gap: 1em;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 1em;
+		padding-bottom: 1em;
+		border-bottom: thin solid rgba(128, 128, 128, 0.24);
+
+		.search-result-count {
+			font-size: map-get($map: $fonts, $key: "smaller");
+			color: #e47e10;
+		}
+
+		.form-group {
+			max-width: 500px;
+			width: 100%;
+			.form-control {
+				display: flex;
+				align-items: center;
+				background: #fff;
+				box-shadow: map-get($map: $shadow, $key: "normal-shadow");
+				border-radius: 5px;
+				overflow: hidden;
+
+				.text-control {
+					padding: 0.5em 1em;
+					flex-grow: 1;
+					font-family: Poppins;
+					background: transparent;
+					appearance: none;
+				}
+
+				.search-btn {
+					padding: 0.5em 1em;
+					height: 100%;
+					background-color: #e47e10;
+
+					svg {
+						fill: #fff;
+					}
+				}
+			}
+
+			@include media_700 {
+				display: block;
+			}
+		}
+	}
+
+	.section-header {
+		display: inline-flex;
+		gap: 1em;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 0.5em;
+		margin-bottom: 1em;
+
+		.title {
+			font-weight: 500;
+			font-size: 1em;
+			color: #e47e10;
+		}
+	}
+	.search-results {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5em;
+		padding: 0;
+		max-width: 100%;
+
+		.card {
+			width: 300px;
+			max-width: 100%;
+			flex-grow: 1;
+
+			// @include media_950 {
+			// 	width: 330px;
+			// }
+			// @include media_800 {
+			// 	width: 48%;
+			// }
+			@include media_600 {
+				width: 100%;
+			}
+		}
+	}
+}
