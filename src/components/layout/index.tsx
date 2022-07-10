@@ -26,6 +26,7 @@ import {
 } from "@mui/material";
 // import {createTheme} from "@mui/system";
 import Link from "next/link";
+import Navbar from "./Navbar";
 
 const theme = createTheme({
   typography: {
@@ -34,8 +35,7 @@ const theme = createTheme({
 });
 
 function Layout(props: Interfaces.LayoutInterface) {
-  // const [loading, setLoading] = React.useState<boolean>(true);
-  const [width, setWidth] = React.useState<boolean>(true);
+  const [width, setWidth] = React.useState<boolean>(false);
   const { children, type, text, exploring } = props;
   const headerRef = React.useRef<HTMLDivElement>(null);
 
@@ -44,12 +44,7 @@ function Layout(props: Interfaces.LayoutInterface) {
     if (target.scrollTop > 10) headerRef.current!.classList.add("scrolling");
     else headerRef.current!.classList.remove("scrolling");
   };
-
-  // React.useEffect(() => {
-  // 	setTimeout(() => {
-  // 		setLoading(false);
-  // 	}, 3000);
-  // }, []);
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -79,30 +74,30 @@ function Layout(props: Interfaces.LayoutInterface) {
                   </a>
                 </Link>
               </div>
-              {exploring && width && (
-                <div className="search-form-container">
-                  <div className="search-form-wrapper">
-                    <form action="#" className="form-group search-location">
-                      <div className="form-control">
-                        <input
-                          type="text"
-                          className="text-control inputbox search-text"
-                          role="searchbox"
-                          autoComplete="new-search"
-                          placeholder="Enter a location to lookup"
-                        />
-                        <button
-                          role="search"
-                          className="search-btn"
-                          id="search-trigger"
-                        >
-                          <SearchRoundedIcon fontSize="medium" />
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              )}
+              {/*{exploring && width && (*/}
+              {/*  <div className="search-form-container">*/}
+              {/*    <div className="search-form-wrapper">*/}
+              {/*      <form action="#" className="form-group search-location">*/}
+              {/*        <div className="form-control">*/}
+              {/*          <input*/}
+              {/*            type="text"*/}
+              {/*            className="text-control inputbox search-text"*/}
+              {/*            role="searchbox"*/}
+              {/*            autoComplete="new-search"*/}
+              {/*            placeholder="Enter a location to lookup"*/}
+              {/*          />*/}
+              {/*          <button*/}
+              {/*            role="search"*/}
+              {/*            className="search-btn"*/}
+              {/*            id="search-trigger"*/}
+              {/*          >*/}
+              {/*            <SearchRoundedIcon fontSize="medium" />*/}
+              {/*          </button>*/}
+              {/*        </div>*/}
+              {/*      </form>*/}
+              {/*    </div>*/}
+              {/*  </div>*/}
+              {/*)}*/}
               <Navbar exploring={exploring as boolean} setWidth={setWidth} />
             </div>
           </div>
@@ -116,241 +111,5 @@ function Layout(props: Interfaces.LayoutInterface) {
   );
 }
 
-function Navbar(props: {
-  exploring: boolean;
-  setWidth: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
-  const [state, setState] = React.useState<
-    Partial<Interfaces.LayoutStateInterface>
-  >({ openDrawer: false });
-  const [width, setWidth] = React.useState<number>(0);
-
-  React.useEffect(() => {
-    setWidth(window.innerWidth);
-    props.setWidth(window.innerWidth > 700);
-
-    const handleResize = () => {
-      if (window.innerWidth < 700 || window.innerWidth > 700) {
-        setWidth(window.innerWidth);
-        props.setWidth(window.innerWidth > 700);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [props]);
-
-  // Render this navbar if user is on desktop
-  if (width > 700) {
-    return (
-      <nav className="page-navbar responsive" style={{ position: "relative" }}>
-        <Stack
-          spacing={2}
-          direction="row"
-          alignItems="center"
-          className="authetication-wrapper"
-        >
-          {!props.exploring && (
-            <React.Fragment>
-              <div className="link">
-                <Link passHref href="/explore">
-                  <a
-                    href="#"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <ExploreIcon style={{ marginRight: 5 }} />
-                    Explore
-                  </a>
-                </Link>
-              </div>
-              <div className="link">
-                <Link passHref href="/agent-apply">
-                  <a
-                    href="#"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <PeopleIcon style={{ marginRight: 5 }} />
-                    Membership
-                  </a>
-                </Link>
-              </div>
-            </React.Fragment>
-          )}
-          <div className="login" id="register-btn-wrap">
-            <Link href="/login" passHref>
-              <Button color="info" size="small" variant="contained">
-                Login
-              </Button>
-            </Link>
-          </div>
-          <div className="register" id="register-btn-wrap">
-            <Link href="/register" passHref>
-              <Button color="inherit" size="small" variant="contained">
-                Register
-              </Button>
-            </Link>
-          </div>
-          <div className="navigation-icon">
-            <IconButton
-              role="toolbar"
-              className="icon"
-              size="small"
-              aria-roledescription="it toggle menubar on small screen size [andriod, tablet]"
-              onClick={() =>
-                setState({
-                  ...state,
-                  openDrawer: !state.openDrawer,
-                })
-              }
-            >
-              {state.openDrawer ? (
-                <ArrowDropDownIcon fontSize="medium" className="icon-svg" />
-              ) : (
-                <ArrowDropUpIcon fontSize="medium" className="icon-svg" />
-              )}
-            </IconButton>
-          </div>
-        </Stack>
-        <AnimatePresence exitBeforeEnter={true} initial={false}>
-          {state.openDrawer && (
-            <motion.div
-              className="drop-down container"
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                variants={variant}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="drop-down wrapper"
-              >
-                <div className="drop-down link-list-header">
-                  <div className="title">Not signed in</div>
-                  <Stack direction="row" spacing={1}>
-                    <div className="login" id="register-btn-wrap">
-                      <Button color="info" size="small" variant="contained">
-                        Login
-                      </Button>
-                    </div>
-                    <div className="register" id="register-btn-wrap">
-                      <Button color="inherit" size="small" variant="contained">
-                        Register
-                      </Button>
-                    </div>
-                  </Stack>
-                </div>
-                <Divider />
-                <List>
-                  {NavbarData.map((data, index) => {
-                    return (
-                      <Link key={index} passHref href={data.link}>
-                        <a href="#">
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <data.icon fontSize="small" />
-                            </ListItemIcon>
-                            <ListItemText primary={data.text} />
-                          </ListItemButton>
-                        </a>
-                      </Link>
-                    );
-                  })}
-                </List>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        {state.openDrawer && (
-          <div
-            className="modalSignal"
-            style={{
-              zIndex: 1000,
-              position: "fixed",
-              height: "100vh",
-              width: "100vw",
-              left: 0,
-              top: 0,
-              backgroundColor: "transparent",
-            }}
-            onClick={() => {
-              setState({ ...state, openDrawer: false });
-            }}
-          ></div>
-        )}
-      </nav>
-    );
-  }
-
-  // returns this navbar if user is on mobile
-  return (
-    <nav className="page-navbar responsive">
-      <div className="navigation-icon">
-        <IconButton
-          role="toolbar"
-          className="icon"
-          aria-roledescription="it toggle menubar on small screen size [andriod, tablet]"
-          onClick={() => setState({ ...state, openDrawer: true })}
-        >
-          <Menu fontSize="medium" className="icon-svg" />
-        </IconButton>
-      </div>
-      <SwipeableDrawer
-        anchor="right"
-        open={state.openDrawer as boolean}
-        onClose={() => setState({ ...state, openDrawer: false })}
-        onOpen={() => setState({ ...state, openDrawer: true })}
-      >
-        <div className="drawer container">
-          <div className="drawer wrapper">
-            <div className="drop-down link-list-header">
-              <div className="title">Not signed in</div>
-              <Stack direction="row" spacing={1}>
-                <div className="login" id="register-btn-wrap">
-                  <Link href="/login" passHref>
-                    <Button color="info" size="small" variant="contained">
-                      Login
-                    </Button>
-                  </Link>
-                </div>
-                <div className="register" id="register-btn-wrap">
-                  <Link href="/register" passHref>
-                    <Button color="inherit" size="small" variant="contained">
-                      Register
-                    </Button>
-                  </Link>
-                </div>
-              </Stack>
-            </div>
-            <Divider />
-            <List>
-              {NavbarData.map((data, index) => {
-                return (
-                  <Link key={index} passHref href={data.link}>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <data.icon fontSize="small" />
-                      </ListItemIcon>
-                      <ListItemText primary={data.text} />
-                    </ListItemButton>
-                  </Link>
-                );
-              })}
-            </List>
-          </div>
-        </div>
-      </SwipeableDrawer>
-    </nav>
-  );
-}
 
 export default Layout;

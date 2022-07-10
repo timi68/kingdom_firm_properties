@@ -23,7 +23,6 @@ input {
 a {
   text-decoration: none;
   display: block;
-  color: white;
 }
 
 html,
@@ -85,12 +84,12 @@ body {
 
 .header {
   background: transparent;
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   width: 100vw;
-  z-index: 10000;
+  z-index: 10;
   padding: 0.6em 1.5em;
   transition: all 0.5s ease-in-out;
 
@@ -120,7 +119,7 @@ body {
           padding: 1em;
           flex-grow: 1;
           height: 100%;
-          font-family: Poppins;
+          font-family: Poppins, serif;
           background: transparent;
           appearance: none;
         }
@@ -137,20 +136,27 @@ body {
       gap: 1em;
     }
   }
-  .logo-wrapper {
-    .logo img {
+  .logo {
+    color: $coral;
+    img {
       height: 50px;
     }
   }
 
-  .icon {
-    border-radius: 5px;
-    background: #f5f5f535;
-
-    .icon-svg {
-      fill: #fff;
-    }
+  .link a{
+    font-size: 1.2em;
+    color: grey;
+    font-weight: 500
   }
+
+  // .icon {
+  //   border-radius: 5px;
+  //   background: #f5f5f535;
+
+  //   .icon-svg {
+  //     fill: #fff;
+  //   }
+  // }
 
   .drop-down.container {
     background: #fff;
@@ -186,7 +192,7 @@ body {
 
   &.scrolling,
   &.exploring {
-    background: #969fa1;
+    background: #fff;
     backdrop-filter: blur(3px);
     box-shadow: map-get($map: $shadow, $key: "normal-shadow");
   }
@@ -194,11 +200,11 @@ body {
   &.exploring {
     position: relative;
     background: #969fa1;
-    color: #fff;
+    // color: #fff;
 
     .logo {
       font-weight: 300;
-      color: inherit;
+      // color: inherit;
     }
 
     .icon {
@@ -212,10 +218,6 @@ body {
     .link a {
       color: inherit;
     }
-
-    &.scrolling {
-      position: absolute;
-    }
   }
   &.invisible {
     top: -200px;
@@ -228,10 +230,10 @@ body {
 
 .drawer.container {
   background: #fff;
-  height: 100vh;
-  width: 250px;
+  width: 100%;
+  height: max-content;
   border-radius: 10px;
-  z-index: 110000;
+  z-index: 100;
   box-shadow: map-get($map: $shadow, $key: "normal-shadow");
   color: grey;
 
@@ -256,7 +258,7 @@ body {
 }
 
 .footer {
-  background: #1d3262;
+  background: #131924;
   color: #ebebeb;
 }
 .footer-wrapper {
@@ -267,8 +269,7 @@ body {
   .footer-form-wrapper {
     max-width: 100%;
     width: 600px;
-    margin: auto;
-    margin-bottom: 3em;
+    margin: auto auto 3em;
 
     .title {
       margin-bottom: 1em;
@@ -288,7 +289,7 @@ body {
 
       .text-control {
         padding: 1em;
-        font-family: Poppins;
+        font-family: Poppins, serif;
         font-weight: 400;
         font-size: 0.8em;
       }
@@ -323,8 +324,7 @@ body {
     .text {
       line-height: 1.7;
       font-weight: 400;
-      font-size: 0.8em;
-      text-align: justify;
+      font-size: 0.9em;
     }
 
     .service {
@@ -340,7 +340,7 @@ body {
       .chip {
         margin-bottom: 5px;
         font-weight: 400;
-        font-family: Poppins;
+        font-family: Poppins, sans-serif, calibri, serif;
         padding: 0.5em;
         height: 40px;
         font-size: 0.8em;
@@ -437,7 +437,7 @@ body {
 
   .help-text,
   .copyright {
-    font-size: 0.8em;
+    font-size:0.9em;
     max-width: 500px;
     margin: auto;
     font-weight: 400;
@@ -445,9 +445,6 @@ body {
     margin-block: 1em;
     line-height: 1.8;
 
-    p {
-      text-align: justify;
-    }
     p:not(:last-child) {
       margin-bottom: 1em;
     }

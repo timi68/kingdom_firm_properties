@@ -2,519 +2,562 @@
 @import "./mixins";
 
 .slider-content {
-	position: relative;
-	.swiper-slide {
-		max-height: 100vh;
-		.swiper-image {
-			position: relative;
-			height: 100vh;
-			filter: brightness(50%);
-			width: 100%;
-			max-height: inherit;
-			max-width: 100%;
-		}
-	}
+  position: relative;
 
-	.swiper-top-layer {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		pointer-events: none;
-		display: grid;
-		gap: 20px;
-		place-items: center;
-		place-content: center;
-		z-index: 10;
+  .home-slider {
+    width: 95%;
+    margin: 2em auto;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .swiper-slide {
+    max-height: 100vh;
+    border-radius: 20px;
+    .swiper-image {
+      position: relative;
+      height: 500px;
+      border-radius: 20px;
+      filter: brightness(50%);
+      width: 100%;
+      max-height: inherit;
+      max-width: 100%;
+    }
+  }
 
-		.layer-text {
-			font-weight: 600;
-			font-size: map-get($map: $fonts, $key: "larger");
-			color: #fff;
-			width: fit-content;
-			text-align: center;
-			max-width: 70vw;
+  .swiper-top-layer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    display: grid;
+    gap: 20px;
+    place-items: center;
+    place-content: center;
+    z-index: 10;
 
-			.small {
-				font-weight: 300;
-				color: rgba(255, 255, 255, 0.7);
-				font-size: 0.5em;
-			}
-		}
-	}
+    .layer-text {
+      font-weight: 600;
+      font-size: map-get($map: $fonts, $key: "larger");
+      color: #fff;
+      width: fit-content;
+      text-align: center;
+      max-width: 70vw;
+
+      .small {
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.5em;
+      }
+    }
+  }
 }
 
 .paper {
-	margin-bottom: 10em;
+  .image-wrapper {
+    position: relative;
+  }
+  &.management,
+  &.explore {
+    margin-block: 5em;
+    margin-bottom: 10em;
 
-	.image-wrapper {
-		position: relative;
-	}
-	&.management,
-	&.explore {
-		margin-block: 5em;
-		margin-bottom: 10em;
+    .image {
+      border-top-right-radius: 50px;
+      box-shadow: 0px 50px 40px 10px rgba(0, 0, 0, 20%);
+      height: 450px;
 
-		.image {
-			border-top-right-radius: 50px;
-			box-shadow: 0px 50px 40px 10px rgba(0, 0, 0, 20%);
-			height: 450px;
+      @include media_550 {
+        height: auto;
+      }
+    }
+  }
+  .paper-card-wrapper {
+    place-items: center;
+    margin-inline: auto;
+    position: relative;
+    padding-right: 50px;
+    display: block;
 
-			@include media_550 {
-				height: auto;
-			}
-		}
-	}
-	.paper-card-wrapper {
-		max-width: 1000px;
-		display: grid;
-		background-color: transparent;
-		grid-template-columns: 2fr 1fr;
-		place-items: center;
-		margin: auto;
-		position: relative;
-		padding-right: 50px;
+    .image-wrapper .image {
+      width: 90%;
+      position: relative;
+      //top: 120px;
+    }
 
-		@include media_650 {
-			display: block;
+    .card-content {
+      padding: 1em;
+      position: absolute;
+      top: 0%;
+      transform: translateY(-50%);
+      background: whitesmoke;
+      border-top-left-radius: 10px;
+      right: 10%;
+      max-width: 100vw;
+      width: 300px;
+      .text {
+        padding-top: 20px;
+        color: rgb(40, 40, 40);
+        margin-bottom: 15px;
+        position: relative;
 
-			.card-content {
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				background: whitesmoke;
-				border-top-left-radius: 10px;
-				right: 0;
-				max-width: 100vw;
-				width: 300px;
-			}
-		}
-		.image-wrapper .image {
-			width: 90%;
-			position: relative;
-			top: 120px;
-		}
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 5px;
+          left: 0;
+          top: 0;
+          border-radius: 10px;
+          background-image: linear-gradient(
+            to right,
+            map-get($colors, "blue"),
+            orange
+          );
+        }
+      }
+      .primary-text {
+        font-weight: 600;
+        margin-bottom: 10px;
+        line-height: 1.7;
+        text-transform: uppercase;
+        font-size: map-get($map: $fonts, $key: "small");
+      }
 
-		.card-content {
-			padding: 1em;
-			.text {
-				padding-top: 20px;
-				color: rgb(40, 40, 40);
-				margin-bottom: 15px;
-				position: relative;
-
-				&::before {
-					content: "";
-					position: absolute;
-					width: 100%;
-					height: 5px;
-					left: 0;
-					top: 0;
-					border-radius: 10px;
-					background-image: linear-gradient(
-						to right,
-						map-get($colors, "blue"),
-						orange
-					);
-				}
-			}
-			.primary-text {
-				font-weight: 600;
-				margin-bottom: 10px;
-				line-height: 1.7;
-				text-transform: uppercase;
-				font-size: map-get($map: $fonts, $key: "small");
-			}
-
-			.secondary-text {
-				font-weight: 400;
-				line-height: 1.7;
-				text-transform: lowercase;
-				font-size: 0.8em;
-			}
-		}
-	}
+      .secondary-text {
+        font-weight: 400;
+        line-height: 1.7;
+        text-transform: lowercase;
+        font-size: 0.8em;
+      }
+    }
+  }
 }
 
-.search-section {
-	max-width: 1000px;
-	margin: auto;
-	padding: 1em;
+.title {
+  position: relative;
+  padding-top: 1em;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 600;
 
-	.title {
-		position: relative;
-		padding-top: 1em;
-		width: fit-content;
-		text-transform: uppercase;
-		font-weight: 600;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 5px;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    background-image: linear-gradient(
+                    to right,
+                    map-get($colors, "blue"),
+                    orange
+    );
 
-		&::before {
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 5px;
-			left: 0;
-			top: 0;
-			border-radius: 10px;
-			background-image: linear-gradient(
-				to right,
-				map-get($colors, "blue"),
-				orange
-			);
-
-			h3 {
-				font-family: Poppins;
-			}
-		}
-	}
-
-	.search-filter {
-		display: flex;
-		flex-wrap: wrap;
-		max-height: auto;
-		overflow: hidden;
-		align-items: center;
-		gap: 5px;
-		justify-content: center;
-		background: #fff;
-		border-radius: 10px;
-		box-shadow: map-get($map: $shadow, $key: "normal-shadow");
-		padding: 20px;
-	}
-	.form-group {
-		display: flex;
-		flex-grow: 1;
-		flex-wrap: wrap;
-		gap: 1em;
-		height: 80px;
-		overflow: hidden;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 1em;
-	}
+    h3 {
+      font-family: Poppins;
+    }
+  }
 }
+
+//.search-section {
+//  max-width: 1000px;
+//  margin: auto;
+//  padding: 1em;
+//
+//  .search-filter {
+//    display: flex;
+//    flex-wrap: wrap;
+//    overflow: hidden;
+//    align-items: center;
+//    gap: 5px;
+//    justify-content: center;
+//    background: #fff;
+//    border-radius: 10px;
+//    box-shadow: map-get($map: $shadow, $key: "normal-shadow");
+//    padding: 20px;
+//  }
+//  .form-group {
+//    display: flex;
+//    flex-grow: 1;
+//    flex-wrap: wrap;
+//    gap: 1em;
+//    height: 80px;
+//    overflow: hidden;
+//    justify-content: center;
+//    align-items: center;
+//    margin-bottom: 1em;
+//  }
+//}
 
 .top-properties,
 .search-results,
 .related-results {
-	max-width: 1200px;
-	margin: auto;
-	padding: 1em;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1em;
 
-	.swiper {
-		padding: 10px;
-	}
-	.card {
-		border-radius: 20px;
+  .swiper {
+    padding: 10px;
+  }
+  .card {
+    border-radius: 20px;
 
-		.property-image {
-			border-radius: 20px;
-		}
+    .property-image {
+      border-radius: 20px;
+    }
 
-		.property-price {
-			color: $coral;
-		}
-	}
+    .property-price {
+      color: $coral;
+    }
+  }
 
-	.property-details-container {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		margin-block: 12px;
-		gap: 0.5em;
-		.detail-wrapper {
-			display: flex;
-			flex-wrap: nowrap;
-			padding-block: 1em;
-			background: #f5f5f5;
-			border-radius: 0.3em;
+  .property-details-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-block: 12px;
+    gap: 0.5em;
+    .detail-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-block: 1em;
+      background: #f5f5f5;
+      border-radius: 0.3em;
 
-			.detail {
-				width: 33.3%;
-				display: grid;
-				place-items: center;
-				font-weight: 300;
+      .detail {
+        width: 33.3%;
+        display: grid;
+        place-items: center;
+        font-weight: 300;
 
-				.title {
-					display: flex;
-					align-items: center;
-					font-weight: 500;
-					gap: 0.1em;
-					font-size: 10px;
-					color: $coral;
-				}
-				.icon {
-					fill: grey;
-					font-size: 13px;
-					background: #f5f5f5;
-					border-radius: 5px;
-				}
-				.label {
-					font-size: 0.5em;
-					font-weight: 500;
-				}
-			}
-		}
+        .title {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          gap: 0.1em;
+          font-size: 10px;
+          color: $coral;
+        }
+        .icon {
+          fill: grey;
+          font-size: 13px;
+          background: #f5f5f5;
+          border-radius: 5px;
+        }
+        .label {
+          font-size: 0.5em;
+          font-weight: 500;
+        }
+      }
+    }
 
-		.toggle-btn-group {
-			display: grid;
-			place-items: center;
+    .toggle-btn-group {
+      display: grid;
+      place-items: center;
 
-			.btn-wrapper {
-				display: flex;
-				flex-wrap: nowrap;
-				gap: 0.3em;
-				justify-content: space-around;
+      .btn-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.3em;
+        justify-content: space-around;
 
-				.icon {
-					fill: grey;
-					font-size: 13px;
-					background: #f5f5f5;
-					border-radius: 5px;
-				}
-			}
-		}
-	}
+        .icon {
+          fill: grey;
+          font-size: 13px;
+          background: #f5f5f5;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
 }
 
 .home-main-content {
-	padding: 10px;
+  padding: 2em;
+  max-width: 1000px;
+  width: 100%;
+  margin-inline: auto;
+  margin-block: 10em;
+  overflow: hidden;
+  position: relative;
 
-	.section-title {
-		text-align: center;
-		font-weight: 600;
-		font-size: map-get($map: $fonts, $key: "medium");
-		margin: auto;
-		margin-block: 1.5em;
-		width: fit-content;
-		position: relative;
-		padding-top: 1em;
+  @include media_500{
+    padding: 10px;
+    padding-right: 30px;
+  }
 
-		&::before {
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 5px;
-			left: 0;
-			top: 0;
-			border-radius: 10px;
-			background-image: linear-gradient(
-				to right,
-				map-get($colors, "blue"),
-				orange
-			);
-		}
-	}
-	.card-wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 20px;
-		// padding: 20px;
-	}
+  .card-wrapper{
+    border-collapse: collapse;
+  }
 
-	.card {
-		border-radius: 20px;
-		width: 320px;
-		position: relative;
-		// box-shadow: map-get($map: $shadow, $key: "card-shadow");
-	}
-	.card-media-container {
-		min-height: 150px;
-		// display: grid;
+  .section-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: map-get($map: $fonts, $key: "medium");
+    margin: auto;
+    margin-block: 1.5em;
+    width: fit-content;
+    position: relative;
+    padding-top: 1em;
 
-		.card-media {
-			width: 70%;
-			margin: auto;
-		}
-	}
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+      background-image: linear-gradient(
+        to right,
+        map-get($colors, "blue"),
+        orange
+      );
+    }
+  }
+  .offer-card {
+    border-radius: 0;
+    padding-block: 5em;
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    border: 20px solid $coral;
+    border-bottom-width: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-	.card-content {
-		padding: 2em;
+    @include media_500{
+      flex-direction: column;
+    }
 
-		.primary-text .title {
-			font-weight: 600;
-			font-size: map-get($map: $fonts, $key: "small");
-		}
+    &:nth-child(odd) {
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+    }
 
-		.secondary-text {
-			margin-bottom: 3em;
-			.text {
-				font-size: 0.8em;
-				font-weight: 400;
-				line-height: 1.7;
-				min-height: 70px;
-				margin-block: 1em;
-			}
-		}
-	}
+    &:first-child{
+      border-top-right-radius: 10px;
+    }
 
-	.card-action-btn {
-		text-transform: capitalize;
-		position: absolute;
-		bottom: 1.5em;
-		left: 50%;
-		transform: translateX(-50%);
-		background: map-get($map: $colors, $key: "blue");
-		width: auto;
-		padding: 0.5em 2em;
-		border-radius: 50px;
-	}
+    &:nth-child(even) {
+      border-left: none;
+      flex-direction: row-reverse;
+      border-radius: 0 20px 20px 0;
+      left: 19px;
+      top: -20px;
+      @include media_500{
+        flex-direction: column;
+        .card-content{
+          display: flex;
+          text-align: right;
+          flex-wrap: wrap;
+          justify-content: right;
+        }
+      }
+    }
+
+    &:nth-child(3){
+      right: 0;
+      top: -40px;
+    }
+  }
+  .card-media-container {
+    min-height: 150px;
+    // display: grid;
+
+    .card-media {
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+
+  .card-content {
+    padding: 2em;
+
+    .primary-text .title {
+      font-weight: 600;
+      font-size: map-get($map: $fonts, $key: "small");
+    }
+
+    .secondary-text {
+      margin-bottom: 3em;
+      .text {
+        font-size: 0.8em;
+        font-weight: 400;
+        line-height: 1.7;
+        min-height: 70px;
+        margin-block: 1em;
+      }
+    }
+  }
+
+  .card-action-btn {
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: map-get($map: $colors, $key: "blue");
+    width: auto;
+    padding: 0.5em 2em;
+    border-radius: 50px;
+  }
 }
 
 .know-about.neighbourhoods {
-	background: #1d3262;
-	padding-block: 5em;
-	margin-block: 3em;
-	color: #fff;
-	min-height: 400px;
+  background: #1d3262;
+  padding-block: 5em;
+  margin-block: 3em;
+  color: #fff;
+  min-height: 400px;
 
-	.know-about-wrapper {
-		max-width: 800px;
-		margin: auto;
-	}
+  .know-about-wrapper {
+    max-width: 800px;
+    margin: auto;
+  }
 
-	.section-header {
-		margin-block: 2em;
-		padding-inline: 3em;
+  .section-header {
+    margin-block: 2em;
+    padding-inline: 3em;
 
-		@include media_360 {
-			padding-inline: 1em;
-		}
+    @include media_360 {
+      padding-inline: 1em;
+    }
 
-		.primary-text {
-			font-size: map-get($map: $fonts, $key: "small");
-			font-weight: 500;
-			text-align: center;
+    .primary-text {
+      font-size: map-get($map: $fonts, $key: "small");
+      font-weight: 500;
+      text-align: center;
 
-			.text {
-				text-transform: uppercase;
-			}
-		}
-		.secondary-text {
-			margin: auto;
-			margin-block: 1em;
-			font-size: map-get($map: $fonts, $key: "smaller");
-			color: rgba(255, 255, 255, 0.8);
-			font-weight: 400;
-			max-width: 500px;
-			text-align: center;
-		}
+      .text {
+        text-transform: uppercase;
+      }
+    }
+    .secondary-text {
+      margin: auto;
+      margin-block: 1em;
+      font-size: map-get($map: $fonts, $key: "smaller");
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      max-width: 500px;
+      text-align: center;
+    }
 
-		@include media_360 {
-			.primary-text {
-				font-size: calc(100vw / 20);
-			}
+    @include media_360 {
+      .primary-text {
+        font-size: calc(100vw / 20);
+      }
 
-			.secondary-text {
-				font-size: smaller;
-			}
-		}
-	}
+      .secondary-text {
+        font-size: smaller;
+      }
+    }
+  }
 
-	.about-cards-wrapper {
-		max-width: 700px;
-		margin: auto;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		gap: 20px;
-		height: 350px;
+  .about-cards-wrapper {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    height: 350px;
 
-		.card:first-child {
-			grid-column: 1/3;
-			grid-row: 1/3;
-			background: rgba(0, 0, 0, 50%) url("/images/cardimagesabout/card1.jpg");
-			background-blend-mode: darken;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
-			border-radius: 10px;
+    .card:first-child {
+      grid-column: 1/3;
+      grid-row: 1/3;
+      background-blend-mode: darken;
+      background-size: cover;
+      background: rgba(0, 0, 0, 50%) url("/images/cardimagesabout/card1.jpg") no-repeat center;
+      border-radius: 10px;
 
-			@media (max-width: 700px) {
-				border-radius: 0 10px 10px 0;
-			}
-		}
+      @media (max-width: 700px) {
+        border-radius: 0 10px 10px 0;
+      }
+    }
 
-		.card:nth-child(2) {
-			grid-column: 3/5;
-			background: map-get($map: $colors, $key: "low-white");
-			color: white;
+    .card:nth-child(2) {
+      grid-column: 3/5;
+      background: map-get($map: $colors, $key: "low-white");
+      color: white;
 
-			.card-title {
-				margin-bottom: 1em;
-				position: initial;
-			}
-			.secondary-text {
-				font-size: map-get($map: $fonts, $key: "smaller");
-				font-weight: 200;
-				color: whitesmoke;
-				font-family: Poppins;
-			}
+      .card-title {
+        margin-bottom: 1em;
+        position: initial;
+      }
+      .secondary-text {
+        font-size: map-get($map: $fonts, $key: "smaller");
+        font-weight: 200;
+        color: whitesmoke;
+        font-family: Poppins;
+      }
 
-			@media (max-width: 700px) {
-				border-radius: 10px 0px 0px 10px;
-			}
-		}
-		.card:last-child {
-			grid-column: 3/5;
-			grid-row: 2/3;
-			background: rgba(0, 0, 0, 50%) url("/images/cardimagesabout/card2.jpg");
-			background-blend-mode: darken;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
+      @media (max-width: 700px) {
+        border-radius: 10px 0px 0px 10px;
+      }
+    }
+    .card:last-child {
+      grid-column: 3/5;
+      grid-row: 2/3;
+      background-blend-mode: darken;
+      background-size: cover;
+      background: rgba(0, 0, 0, 50%) url("/images/cardimagesabout/card2.jpg") no-repeat center;
 
-			@media (max-width: 700px) {
-				border-radius: 10px 0px 0px 10px;
-			}
-		}
+      @media (max-width: 700px) {
+        border-radius: 10px 0px 0px 10px;
+      }
+    }
 
-		.card-action-area {
-			height: 100%;
-			position: relative;
-			font-family: Poppins;
+    .card-action-area {
+      height: 100%;
+      position: relative;
+      font-family: Poppins;
 
-			.caption {
-				color: white;
-				font-size: map-get($map: $fonts, $key: "medium");
-				font-weight: 300;
-			}
-			.card-title,
-			.card-actions {
-				position: absolute;
-				left: 15px;
-			}
-			.card-title {
-				top: 20px;
-			}
+      .caption {
+        color: white;
+        font-size: map-get($map: $fonts, $key: "medium");
+        font-weight: 300;
+      }
+      .card-title,
+      .card-actions {
+        position: absolute;
+        left: 15px;
+      }
+      .card-title {
+        top: 20px;
+      }
 
-			.card-actions {
-				bottom: 20px;
+      .card-actions {
+        bottom: 20px;
 
-				.btn {
-					@include media_360 {
-						font-size: map-get($fonts, "smaller");
-					}
-				}
-			}
-		}
-	}
+        .btn {
+          @include media_360 {
+            font-size: map-get($fonts, "smaller");
+          }
+        }
+      }
+    }
+  }
 
-	.searchbar {
-		margin: auto;
-		max-width: 700px;
-		margin-block: 2em;
-		padding-inline: 3em;
+  .searchbar {
+    margin: auto;
+    max-width: 700px;
+    margin-block: 2em;
+    padding-inline: 3em;
 
-		@include media_360 {
-			padding-inline: 1em;
-		}
-		@include formControl(
-			30px,
-			0.5em 1em,
-			#fff,
-			map-get($map: $colors, $key: "blue")
-		);
-	}
+    @include media_360 {
+      padding-inline: 1em;
+    }
+    @include formControl(
+      30px,
+      0.5em 1em,
+      #fff,
+      map-get($map: $colors, $key: "blue")
+    );
+  }
 }

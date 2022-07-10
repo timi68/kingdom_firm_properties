@@ -56,30 +56,30 @@ function Footer({children}: {children?: React.ReactNode}) {
 	return (
 		<div className="footer page-footer">
 			<div className="footer-wrapper">
-				<div className="footer-form-wrapper">
-					<div className="title">
-						<div className="text">GET REAL TIME MARKET INSIGHT</div>
-					</div>
-					<form action="#" className="form-group register-email">
-						<div className="form-control">
-							<input
-								type="text"
-								className="text-control inputbox"
-								role="searchbox"
-								autoComplete="new-search"
-								placeholder="Search for City, Neighbourhood..."
-							/>
-							<button role="search" className="search-btn" id="search-trigger">
-								<SearchRoundedIcon fontSize="medium" />
-							</button>
-						</div>
-					</form>
-				</div>
+				{/*<div className="footer-form-wrapper">*/}
+				{/*	<div className="title">*/}
+				{/*		<div className="text">GET REAL TIME MARKET INSIGHT</div>*/}
+				{/*	</div>*/}
+				{/*	<form action="#" className="form-group register-email">*/}
+				{/*		<div className="form-control">*/}
+				{/*			<input*/}
+				{/*				type="text"*/}
+				{/*				className="text-control inputbox"*/}
+				{/*				role="searchbox"*/}
+				{/*				autoComplete="new-search"*/}
+				{/*				placeholder="Search for City, Neighbourhood..."*/}
+				{/*			/>*/}
+				{/*			<button role="search" className="search-btn" id="search-trigger">*/}
+				{/*				<SearchRoundedIcon fontSize="medium" />*/}
+				{/*			</button>*/}
+				{/*		</div>*/}
+				{/*	</form>*/}
+				{/*</div>*/}
 				<div className="about-text">
 					<div className="about-text-wrapper">
 						<div className="company-logo">
 							<div className="title">
-								<span>Kingdom Propperties</span>
+								<span>Kingdom Firm Properties</span>
 							</div>
 						</div>
 						<div className="text">
@@ -122,9 +122,9 @@ function Footer({children}: {children?: React.ReactNode}) {
 												{li.links.map((a, index) => {
 													return (
 														<div className="link-wrap" key={index}>
-															<Link passHref href={a.url}>
+															<Link passHref href={a!.url}>
 																<a href="#" className="link">
-																	<span>{a.text}</span>
+																	<span>{a!.text}</span>
 																</a>
 															</Link>
 														</div>
