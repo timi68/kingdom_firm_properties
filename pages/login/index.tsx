@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../../components/global/footer";
+import Footer from "../../src/components/global/footer";
 import {Swiper, SwiperSlide} from "swiper/react";
 import SwiperCore, {Autoplay} from "swiper";
 import {slideImages} from "../../lib/data";

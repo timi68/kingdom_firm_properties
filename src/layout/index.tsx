@@ -1,7 +1,6 @@
-import React, {Fragment} from "react";
+import React from "react";
 import * as Interfaces from "../../utils/interfaces";
 import Footer from "../../components/global/footer";
-import Box from "@mui/material/Box";
 import Menu from "@mui/icons-material/Menu";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
@@ -36,13 +35,13 @@ const theme = createTheme({
 function Layout(props: Interfaces.LayoutInterface) {
 	// const [loading, setLoading] = React.useState<boolean>(true);
 	const [width, setWidth] = React.useState<boolean>(true);
-	const {children, type, text, exploring} = props;
+	const {children, exploring} = props;
 	const headerRef = React.useRef<HTMLDivElement>(null);
 
 	const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
 		const target = e.target as HTMLDivElement;
-		if (target.scrollTop > 10) headerRef.current.classList.add("scrolling");
-		else headerRef.current.classList.remove("scrolling");
+		if (target.scrollTop > 10) headerRef.current!?.classList.add("scrolling");
+		else headerRef.current!?.classList.remove("scrolling");
 	};
 
 	// React.useEffect(() => {
@@ -106,7 +105,7 @@ function Layout(props: Interfaces.LayoutInterface) {
 									</div>
 								</div>
 							)}
-							<Navbar exploring={exploring} setWidth={setWidth} />
+							<Navbar exploring={Boolean(exploring)} setWidth={setWidth} />
 						</div>
 					</div>
 					<div className="main" role="main">
@@ -126,7 +125,7 @@ function Navbar(props: {
 	const [state, setState] = React.useState<
 		Partial<Interfaces.LayoutStateInterface>
 	>({openDrawer: false});
-	const [width, setWidth] = React.useState<number>(null);
+	const [width, setWidth] = React.useState<number>(0);
 
 	React.useEffect(() => {
 		setWidth(window.innerWidth);
@@ -346,7 +345,7 @@ function Navbar(props: {
 			</div>
 			<SwipeableDrawer
 				anchor="right"
-				open={state.openDrawer}
+				open={Boolean(state.openDrawer)}
 				onClose={() => setState({...state, openDrawer: false})}
 				onOpen={() => setState({...state, openDrawer: true})}
 			>

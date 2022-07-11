@@ -1,46 +1,36 @@
 {
-	"name": "kingdomfirmproperties",
-	"version": "1.0.0",
-	"description": "This is a site for real estate management",
-	"main": "index.js",
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/timi68/kingdomfirmproperties.git"
-	},
-	"keywords": [
-		"Estate",
-		"managemnt",
-		"site"
-	],
-	"author": "Timi James",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/timi68/kingdomfirmproperties/issues"
-	},
-	"homepage": "https://github.com/timi68/kingdomfirmproperties#readme",
-	"devDependencies": {
-		"@types/react": "17.0.38",
-		"eslint": "8.6.0",
-		"eslint-config-next": "12.0.7",
-		"typescript": "4.5.4"
-	},
-	"dependencies": {
-		"@emotion/react": "^11.7.1",
-		"@emotion/styled": "^11.6.0",
-		"@mui/icons-material": "^5.2.5",
-		"@mui/material": "^5.2.7",
-		"@mui/styles": "^5.2.3",
-		"framer-motion": "^5.5.5",
-		"next": "^12.0.7",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"sass": "^1.46.0",
-		"swiper": "^7.4.1"
-	}
+  "name": "kfp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
+    "@mui/styles": "^5.8.7",
+    "framer-motion": "^6.4.0",
+    "google-map-react": "^2.1.10",
+    "next": "12.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-swipeable-views": "^0.14.0",
+    "sass": "^1.53.0",
+    "swiper": "^8.2.6"
+  },
+  "devDependencies": {
+    "@types/google-map-react": "^2.1.7",
+    "@types/node": "18.0.1",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.6",
+    "@types/react-swipeable-views": "^0.13.1",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.0",
+    "typescript": "4.7.4"
+  }
 }
