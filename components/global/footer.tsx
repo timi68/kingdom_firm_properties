@@ -139,14 +139,14 @@ function Footer({children}: {children?: React.ReactNode}) {
 														>
 															<Link
 																passHref
-																href={a.url}
+																href={a!.url}
 															>
 																<a
 																	href="#"
 																	className="link"
 																>
 																	<span>
-																		{a.text}
+																		{a!.text}
 																	</span>
 																</a>
 															</Link>

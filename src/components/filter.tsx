@@ -122,7 +122,7 @@ function Filter(props: Props): JSX.Element {
 							size="small"
 							className="close-filter"
 							onClick={() => {
-								props.filterRef.current.classList.remove("visible");
+								props.filterRef.current!.classList.remove("visible");
 							}}
 						>
 							<CloseRoundedIcon />
