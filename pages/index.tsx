@@ -46,7 +46,7 @@ function Home() {
     <Layout>
       <div className="slider-content">
         <Slider />
-        <div className="title-content swiper-top-layer">
+        <Box maxWidth={'90%'} className="title-content swiper-top-layer">
           <Typography
             textAlign="center"
             variant="h4"
@@ -58,7 +58,7 @@ function Home() {
               Amazing deals to invest on.
             </Typography>
           </Typography>
-        </div>
+        </Box>
       </div>
       <Box className="good-hands paper" mt={{xs: 10, sm: 10}}>
         <Grid container gap={{xs: 3, md: 4}} sx={{alignItems: 'center', maxWidth: '1200px', width: '100%', overflow: 'hidden', mx: 'auto!important', flexDirection: {xs: 'column-reverse', md: 'row'},flexWrap: {xs: 'wrap', md: 'nowrap'}}}>
